@@ -156,15 +156,26 @@
 }
 
 .status {
-  font-size: 14px;
-  margin-top: 10px;
-  display: block;
+  margin-top: 16px;
+  padding: 12px 16px;
+  border-radius: 8px;
+  font-weight: 600;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  font-size: 16px;
+  max-width: 350px;
 }
 
 .status.success {
-  color: green;
+  background-color: #eafaf1;
+  color: #28a745;
+  border-left: 4px solid #28a745;
 }
 
 .status.error {
-  color: red;
+  background-color: #fcebea;
+  color: #e53935;
+  border-left: 4px solid #e53935;
 }
+

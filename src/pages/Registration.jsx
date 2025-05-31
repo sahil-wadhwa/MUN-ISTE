@@ -1,29 +1,35 @@
 import React, { useEffect, useRef, useState } from "react";
-import { Facebook, Twitter, Instagram, Linkedin, Mail, MapPin, Phone } from 'lucide-react';
+import {
+  Facebook,
+  Twitter,
+  Instagram,
+  Linkedin,
+  Mail,
+  MapPin,
+  Phone,
+} from "lucide-react";
 import * as THREE from "three";
 
-
-
 const initialFormData = {
-  fullName: '',
-  email: '',
-  university: '',
-  phoneNumber: '',
-  delegateType: '',
-  committeePreference1: '',
-  committeePreference2: '',
-  previousExperience: '',
+  fullName: "",
+  email: "",
+  university: "",
+  phoneNumber: "",
+  delegateType: "",
+  committeePreference1: "",
+  committeePreference2: "",
+  previousExperience: "",
   accommodationRequired: false,
   agreeToTerms: false,
 };
 
 const committees = [
-  'United Nations General Assembly (UNGA)',
-  'United Nations Security Council (UNSC)',
-  'United Nations Human Rights Council (UNHRC)',
-  'World Health Organization (WHO)',
-  'International Monetary Fund (IMF)',
-  'Crisis Committee: Global Cyber Security Council',
+  "United Nations General Assembly (UNGA)",
+  "United Nations Security Council (UNSC)",
+  "United Nations Human Rights Council (UNHRC)",
+  "World Health Organization (WHO)",
+  "International Monetary Fund (IMF)",
+  "Crisis Committee: Global Cyber Security Council",
 ];
 
 const Registration = () => {
@@ -37,7 +43,7 @@ const Registration = () => {
 
     setFormData((prev) => ({
       ...prev,
-      [name]: type === 'checkbox' ? checked : value,
+      [name]: type === "checkbox" ? checked : value,
     }));
 
     if (errors[name]) {
@@ -51,22 +57,41 @@ const Registration = () => {
   const validateForm = () => {
     const newErrors = {};
 
-    if (!formData.fullName.trim()) newErrors.fullName = 'Required';
+    if (!formData.fullName.trim()) newErrors.fullName = "Required";
     if (!formData.email.trim()) {
-      newErrors.email = 'Required';
+      newErrors.email = "Required";
     } else if (!/\S+@\S+\.\S+/.test(formData.email)) {
-      newErrors.email = 'Invalid email format';
+      newErrors.email = "Invalid email format";
     }
-    if (!formData.university.trim()) newErrors.university = 'Required';
-    if (!formData.phoneNumber.trim()) newErrors.phoneNumber = 'Required';
-    if (!formData.delegateType) newErrors.delegateType = 'Required';
-    if (!formData.committeePreference1) newErrors.committeePreference1 = 'Required';
-    if (!formData.agreeToTerms) newErrors.agreeToTerms = 'You must agree to the terms';
+    if (!formData.university.trim()) newErrors.university = "Required";
+    if (!formData.phoneNumber.trim()) newErrors.phoneNumber = "Required";
+    if (!formData.delegateType) newErrors.delegateType = "Required";
+    if (!formData.committeePreference1)
+      newErrors.committeePreference1 = "Required";
+    if (!formData.agreeToTerms)
+      newErrors.agreeToTerms = "You must agree to the terms";
 
     return newErrors;
   };
 
-  const handleSubmit = (e) => {
+  // const handleSubmit = (e) => {
+  //   e.preventDefault();
+
+  //   const formErrors = validateForm();
+  //   if (Object.keys(formErrors).length > 0) {
+  //     setErrors(formErrors);
+  //     return;
+  //   }
+
+  //   setIsSubmitting(true);
+
+  //   setTimeout(() => {
+  //     setIsSubmitting(false);
+  //     setIsSubmitted(true);
+  //     setFormData(initialFormData);
+  //   }, 1500);
+  // };
+  const handleSubmit = async (e) => {
     e.preventDefault();
 
     const formErrors = validateForm();
@@ -77,13 +102,34 @@ const Registration = () => {
 
     setIsSubmitting(true);
 
-    setTimeout(() => {
-      setIsSubmitting(false);
+    try {
+      const response = await fetch(
+        "https://iste-mun-backend.vercel.app/api/register",
+        {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify(formData),
+        }
+      );
+
+      if (!response.ok) {
+        const errorData = await response.json();
+        throw new Error(errorData.message || "Registration failed");
+      }
+      console.log(response);
+      const data = await response.json();
       setIsSubmitted(true);
       setFormData(initialFormData);
-    }, 1500);
+    } catch (error) {
+      console.error("Registration error:", error);
+      // You can show an error message to the user
+      setErrors({ submit: error.message || "Failed to submit registration" });
+    } finally {
+      setIsSubmitting(false);
+    }
   };
-
   if (isSubmitted) {
     return (
       <section id="registration" className="py-20 bg-gray-50">
@@ -97,17 +143,26 @@ const Registration = () => {
                 viewBox="0 0 24 24"
                 stroke="currentColor"
               >
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  strokeWidth={2}
+                  d="M5 13l4 4L19 7"
+                />
               </svg>
             </div>
-            <h2 className="text-3xl font-bold text-red-600 mb-4">Registration Successful!</h2>
+            <h2 className="text-3xl font-bold text-red-600 mb-4">
+              Registration Successful!
+            </h2>
             <p className="text-white mb-8">
-              Thank you for registering for the JGU MUN Conference 2025. We have received your application and
-              will be in touch shortly with further details.
+              Thank you for registering for the JGU MUN Conference 2025. We have
+              received your application and will be in touch shortly with
+              further details.
             </p>
             <p className="text-white mb-8">
-              Please check your email for a confirmation message. If you don't receive it within 24 hours, please
-              check your spam folder or contact us.
+              Please check your email for a confirmation message. If you don't
+              receive it within 24 hours, please check your spam folder or
+              contact us.
             </p>
             <button
               onClick={() => setIsSubmitted(false)}
@@ -122,14 +177,17 @@ const Registration = () => {
   }
 
   return (
-    <section  id="registration" className="py-20 bg-gray-50">
+    <section id="registration" className="py-20 bg-gray-50">
       <div className="container mx-auto px-4">
         <div className="text-center mb-16">
-          <h2 className="text-3xl md:text-4xl font-bold text-red-600 mb-4">Registration</h2>
+          <h2 className="text-3xl md:text-4xl font-bold text-red-600 mb-4">
+            Registration
+          </h2>
           <div className="w-20 h-1 bg-yellow-600 mx-auto mb-6"></div>
           <p className="text-black max-w-3xl mx-auto">
-            Join us for the CU-MUN Conference 2025. Fill out the form below to register as a delegate. Early
-            registration is recommended as committee spots fill up quickly.
+            Join us for the CU-MUN Conference 2025. Fill out the form below to
+            register as a delegate. Early registration is recommended as
+            committee spots fill up quickly.
           </p>
         </div>
 
@@ -140,14 +198,22 @@ const Registration = () => {
               <div className="mb-8">
                 <h4 className="text-lg font-semibold mb-2">Registration Fee</h4>
                 <p className="text-red-100 mb-1">Individual Delegate: $50</p>
-                <p className="text-red-100 mb-1">Delegation (5+ delegates): $40 per delegate</p>
+                <p className="text-red-100 mb-1">
+                  Delegation (5+ delegates): $40 per delegate
+                </p>
                 <p className="text-red-100">Observer: $30</p>
               </div>
               <div className="mb-8">
                 <h4 className="text-lg font-semibold mb-2">Important Dates</h4>
-                <p className="text-red-100 mb-1">Early Bird Registration: June 1 - July 15, 2025</p>
-                <p className="text-red-100 mb-1">Regular Registration: July 16 - August 1, 2025</p>
-                <p className="text-red-100">Position Paper Deadline: August 5, 2025</p>
+                <p className="text-red-100 mb-1">
+                  Early Bird Registration: June 1 - July 15, 2025
+                </p>
+                <p className="text-red-100 mb-1">
+                  Regular Registration: July 16 - August 1, 2025
+                </p>
+                <p className="text-red-100">
+                  Position Paper Deadline: August 5, 2025
+                </p>
               </div>
               <div>
                 <h4 className="text-lg font-semibold mb-2">Need Help?</h4>
@@ -160,7 +226,10 @@ const Registration = () => {
               <form onSubmit={handleSubmit}>
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
                   <div>
-                    <label htmlFor="fullName" className="block text-sm font-medium text-white mb-1">
+                    <label
+                      htmlFor="fullName"
+                      className="block text-sm font-medium text-white mb-1"
+                    >
                       Full Name*
                     </label>
                     <input
@@ -170,13 +239,20 @@ const Registration = () => {
                       value={formData.fullName}
                       onChange={handleChange}
                       className={`w-full px-4 py-2 border text-white rounded-md focus:outline-none focus:ring-2 focus:ring-red-600 ${
-                        errors.fullName ? 'border-red-600' : 'border-gray-300'
+                        errors.fullName ? "border-red-600" : "border-gray-300"
                       }`}
                     />
-                    {errors.fullName && <p className="mt-1 text-sm text-red-600">{errors.fullName}</p>}
+                    {errors.fullName && (
+                      <p className="mt-1 text-sm text-red-600">
+                        {errors.fullName}
+                      </p>
+                    )}
                   </div>
                   <div>
-                    <label htmlFor="email" className="block text-sm font-medium text-white mb-1">
+                    <label
+                      htmlFor="email"
+                      className="block text-sm font-medium text-white mb-1"
+                    >
                       Email Address*
                     </label>
                     <input
@@ -186,16 +262,23 @@ const Registration = () => {
                       value={formData.email}
                       onChange={handleChange}
                       className={`w-full px-4 py-2 border text-white rounded-md focus:outline-none focus:ring-2 focus:ring-red-600 ${
-                        errors.email ? 'border-red-600' : 'border-gray-300'
+                        errors.email ? "border-red-600" : "border-gray-300"
                       }`}
                     />
-                    {errors.email && <p className="mt-1 text-sm text-red-600">{errors.email}</p>}
+                    {errors.email && (
+                      <p className="mt-1 text-sm text-red-600">
+                        {errors.email}
+                      </p>
+                    )}
                   </div>
                 </div>
 
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
                   <div>
-                    <label htmlFor="university" className="block text-sm font-medium text-white mb-1">
+                    <label
+                      htmlFor="university"
+                      className="block text-sm font-medium text-white mb-1"
+                    >
                       University / Institution*
                     </label>
                     <input
@@ -205,13 +288,20 @@ const Registration = () => {
                       value={formData.university}
                       onChange={handleChange}
                       className={`w-full px-4 py-2 border text-white rounded-md focus:outline-none focus:ring-2 focus:ring-red-600 ${
-                        errors.university ? 'border-red-600' : 'border-gray-300'
+                        errors.university ? "border-red-600" : "border-gray-300"
                       }`}
                     />
-                    {errors.university && <p className="mt-1 text-sm text-red-600">{errors.university}</p>}
+                    {errors.university && (
+                      <p className="mt-1 text-sm text-red-600">
+                        {errors.university}
+                      </p>
+                    )}
                   </div>
                   <div>
-                    <label htmlFor="phoneNumber" className="block text-sm font-medium text-white mb-1">
+                    <label
+                      htmlFor="phoneNumber"
+                      className="block text-sm font-medium text-white mb-1"
+                    >
                       Phone Number*
                     </label>
                     <input
@@ -221,15 +311,24 @@ const Registration = () => {
                       value={formData.phoneNumber}
                       onChange={handleChange}
                       className={`w-full px-4 py-2 border text-white rounded-md focus:outline-none focus:ring-2 focus:ring-red-600 ${
-                        errors.phoneNumber ? 'border-red-600' : 'border-gray-300'
+                        errors.phoneNumber
+                          ? "border-red-600"
+                          : "border-gray-300"
                       }`}
                     />
-                    {errors.phoneNumber && <p className="mt-1 text-sm text-red-600">{errors.phoneNumber}</p>}
+                    {errors.phoneNumber && (
+                      <p className="mt-1 text-sm text-red-600">
+                        {errors.phoneNumber}
+                      </p>
+                    )}
                   </div>
                 </div>
 
                 <div className="mb-6">
-                  <label htmlFor="delegateType" className="block text-sm font-medium text-white mb-1">
+                  <label
+                    htmlFor="delegateType"
+                    className="block text-sm font-medium text-white mb-1"
+                  >
                     Delegate Type*
                   </label>
                   <select
@@ -238,15 +337,21 @@ const Registration = () => {
                     value={formData.delegateType}
                     onChange={handleChange}
                     className={`w-full px-4 py-2 border text-white rounded-md focus:outline-none focus:ring-2 focus:ring-red-600 ${
-                      errors.delegateType ? 'border-red-600' : 'border-gray-300'
+                      errors.delegateType ? "border-red-600" : "border-gray-300"
                     }`}
                   >
                     <option value="">Select delegate type</option>
-                    <option value="Individual Delegate">Individual Delegate</option>
+                    <option value="Individual Delegate">
+                      Individual Delegate
+                    </option>
                     <option value="Observer">Observer</option>
                     <option value="Delegation">Delegation (Group)</option>
                   </select>
-                  {errors.delegateType && <p className="mt-1 text-sm text-red-600">{errors.delegateType}</p>}
+                  {errors.delegateType && (
+                    <p className="mt-1 text-sm text-red-600">
+                      {errors.delegateType}
+                    </p>
+                  )}
                 </div>
 
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
@@ -263,7 +368,9 @@ const Registration = () => {
                       value={formData.committeePreference1}
                       onChange={handleChange}
                       className={`w-full px-4 py-2 border text-white rounded-md focus:outline-none focus:ring-2 focus:ring-red-600 ${
-                        errors.committeePreference1 ? 'border-red-600' : 'border-gray-300'
+                        errors.committeePreference1
+                          ? "border-red-600"
+                          : "border-gray-300"
                       }`}
                     >
                       <option value="">Select committee</option>
@@ -274,7 +381,9 @@ const Registration = () => {
                       ))}
                     </select>
                     {errors.committeePreference1 && (
-                      <p className="mt-1 text-sm text-red-600">{errors.committeePreference1}</p>
+                      <p className="mt-1 text-sm text-red-600">
+                        {errors.committeePreference1}
+                      </p>
                     )}
                   </div>
 
@@ -303,7 +412,10 @@ const Registration = () => {
                 </div>
 
                 <div className="mb-6">
-                  <label htmlFor="previousExperience" className="block text-sm font-medium text-white mb-1">
+                  <label
+                    htmlFor="previousExperience"
+                    className="block text-sm font-medium text-white mb-1"
+                  >
                     Previous MUN Experience (Optional)
                   </label>
                   <textarea
@@ -338,23 +450,29 @@ const Registration = () => {
                     checked={formData.agreeToTerms}
                     onChange={handleChange}
                     className={`h-5 w-5 border rounded focus:ring-2 ${
-                      errors.agreeToTerms ? 'border-red-600 focus:ring-red-600' : 'border-gray-300 focus:ring-red-500'
+                      errors.agreeToTerms
+                        ? "border-red-600 focus:ring-red-600"
+                        : "border-gray-300 focus:ring-red-500"
                     }`}
                   />
                   <label htmlFor="agreeToTerms" className="text-white">
                     I agree to the terms and conditions.*
                   </label>
                 </div>
-                {errors.agreeToTerms && <p className="mt-1 text-sm text-red-600">{errors.agreeToTerms}</p>}
+                {errors.agreeToTerms && (
+                  <p className="mt-1 text-sm text-red-600">
+                    {errors.agreeToTerms}
+                  </p>
+                )}
 
                 <button
                   type="submit"
                   disabled={isSubmitting}
                   className={`w-full py-3 bg-red-600 hover:bg-red-700 text-white font-semibold rounded-md transition-colors duration-300 ${
-                    isSubmitting ? 'opacity-60 cursor-not-allowed' : ''
+                    isSubmitting ? "opacity-60 cursor-not-allowed" : ""
                   }`}
                 >
-                  {isSubmitting ? 'Submitting...' : 'Submit Registration'}
+                  {isSubmitting ? "Submitting..." : "Submit Registration"}
                 </button>
               </form>
             </div>
@@ -366,5 +484,3 @@ const Registration = () => {
 };
 
 export default Registration;
-
-

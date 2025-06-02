@@ -238,7 +238,7 @@ const Registration = () => {
                       name="fullName"
                       value={formData.fullName}
                       onChange={handleChange}
-                      className={`w-full px-4 py-2 border text-white rounded-md focus:outline-none focus:ring-2 focus:ring-red-600 ${
+                      className={`w-full px-4 py-2 border text-black rounded-md focus:outline-none focus:ring-2 focus:ring-red-600 bg-white   ${
                         errors.fullName ? "border-red-600" : "border-gray-300"
                       }`}
                     />
@@ -261,7 +261,7 @@ const Registration = () => {
                       name="email"
                       value={formData.email}
                       onChange={handleChange}
-                      className={`w-full px-4 py-2 border text-white rounded-md focus:outline-none focus:ring-2 focus:ring-red-600 ${
+                      className={`w-full px-4 py-2 border text-black rounded-md focus:outline-none focus:ring-2 focus:ring-red-600  bg-white  ${
                         errors.email ? "border-red-600" : "border-gray-300"
                       }`}
                     />
@@ -287,7 +287,7 @@ const Registration = () => {
                       name="university"
                       value={formData.university}
                       onChange={handleChange}
-                      className={`w-full px-4 py-2 border text-white rounded-md focus:outline-none focus:ring-2 focus:ring-red-600 ${
+                      className={`w-full px-4 py-2 border text-black rounded-md focus:outline-none focus:ring-2 focus:ring-red-600 bg-white  ${
                         errors.university ? "border-red-600" : "border-gray-300"
                       }`}
                     />
@@ -310,7 +310,7 @@ const Registration = () => {
                       name="phoneNumber"
                       value={formData.phoneNumber}
                       onChange={handleChange}
-                      className={`w-full px-4 py-2 border text-white rounded-md focus:outline-none focus:ring-2 focus:ring-red-600 ${
+                      className={`w-full px-4 py-2 border text-black rounded-md focus:outline-none focus:ring-2 focus:ring-red-600 bg-white  ${
                         errors.phoneNumber
                           ? "border-red-600"
                           : "border-gray-300"
@@ -336,7 +336,7 @@ const Registration = () => {
                     name="delegateType"
                     value={formData.delegateType}
                     onChange={handleChange}
-                    className={`w-full px-4 py-2 border text-white rounded-md focus:outline-none focus:ring-2 focus:ring-red-600 ${
+                    className={`w-full px-4 py-2 border text-black rounded-md focus:outline-none focus:ring-2 focus:ring-red-600 bg-white ${
                       errors.delegateType ? "border-red-600" : "border-gray-300"
                     }`}
                   >
@@ -367,7 +367,7 @@ const Registration = () => {
                       name="committeePreference1"
                       value={formData.committeePreference1}
                       onChange={handleChange}
-                      className={`w-full px-4 py-2 border text-white rounded-md focus:outline-none focus:ring-2 focus:ring-red-600 ${
+                      className={`w-full px-4 py-2 border text-black rounded-md focus:outline-none focus:ring-2 focus:ring-red-600 bg-white  ${
                         errors.committeePreference1
                           ? "border-red-600"
                           : "border-gray-300"
@@ -399,7 +399,7 @@ const Registration = () => {
                       name="committeePreference2"
                       value={formData.committeePreference2}
                       onChange={handleChange}
-                      className="w-full px-4 py-2 border text-white border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-red-600"
+                      className="w-full px-4 py-2 border text-black bg-white  border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-red-600"
                     >
                       <option value="">Select committee (optional)</option>
                       {committees.map((committee) => (
@@ -424,7 +424,7 @@ const Registration = () => {
                     rows="3"
                     value={formData.previousExperience}
                     onChange={handleChange}
-                    className="w-full px-4 py-2 border text-white border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-red-600"
+                    className="w-full px-4 py-2 border text-black bg-white  border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-red-600"
                   />
                 </div>
 

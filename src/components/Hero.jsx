@@ -67,7 +67,7 @@ const Hero = () => {
       {/* Ticker Bar */}
       <div className="absolute bottom-0 z-30 w-full bg-white border-y border-gray-300 py-2">
         <div className="overflow-hidden w-full whitespace-nowrap relative h-8 sm:h-10">
-          <div className="absolute animate-marquee flex text-black text-sm sm:text-base md:text-lg font-medium gap-10 px-4">
+          <div className="absolute animate-marquee flex text-black opacity-[0.6] text-sm sm:text-base md:text-lg font-medium gap-10 px-4">
             <span>🚀 Welcome to Technicia'25!</span>
             <span>🌟 Register now for the Hackathon</span>
             <span>🎤 Keynote by global leaders</span>

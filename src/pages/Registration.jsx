@@ -201,7 +201,7 @@ const Registration = () => {
             <h2 className="text-3xl font-bold text-red-600 mb-4">
               Registration Successful!
             </h2>
-            <p className="text-white mb-8">
+            <p className="text-black mb-8">
               Thank you for registering for the JGU MUN Conference 2025
               (September 1st Week), a part of Technisia ISTE. We'll connect with
               you soon for further process.

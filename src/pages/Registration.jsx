@@ -94,17 +94,26 @@ const Registration = () => {
     setIsSubmitting(true);
 
     try {
+      // const response = await fetch(
+      //   "https://iste-mun-backend.vercel.app/api/register",
+      //   {
+      //     method: "POST",
+      //     headers: { "Content-Type": "application/json" },
+      //     body: JSON.stringify(formData),
+      //   }
+      // );
       const response = await fetch(
         "https://iste-mun-backend.vercel.app/api/register",
         {
           method: "POST",
-          headers: { "Content-Type": "application/json" },
+          headers: {
+            "Content-Type": "application/json",
+          },
           body: JSON.stringify(formData),
         }
       );
-
       const result = await response.json();
-      console.log(response);
+      console.log(result);
 
       if (response.ok) {
         console.log("Server response success:", result);

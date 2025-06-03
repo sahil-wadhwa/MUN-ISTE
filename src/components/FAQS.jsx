@@ -232,13 +232,15 @@ const FAQ = () => {
             <p>Chandigarh Univeristy</p>
           </div>
           <iframe
-            title="CU MUN Location"
-            src="https://maps.google.com/maps?q=Chandigarh%20University&t=&z=13&ie=UTF8&iwloc=&output=embed"
-            width="100%"
-            height="350"
-            className="rounded-lg shadow-lg border border-gray-300"
-            loading="lazy"
-          ></iframe>
+  title="CU MUN Location"
+  src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3430.205774247643!2d76.57713977473102!3d30.768454074625103!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x390feee57f2db8ab%3A0x84be7a2e96eb72e9!2sChandigarh%20University%2C%20Gharuan!5e0!3m2!1sen!2sin!4v1688287262593!5m2!1sen!2sin"
+  width="100%"
+  height="350"
+  className="rounded-lg shadow-lg border border-gray-300"
+  allowFullScreen=""
+  loading="lazy"
+  referrerPolicy="no-referrer-when-downgrade"
+/>
         </div>
       </div>
     </section>

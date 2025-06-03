@@ -6,7 +6,7 @@ const ParallaxGallery = () => {
 
   const sections = [
     {
-      image: "/assets/mun1.jpg",
+      image: "/assets/gallery1.jpeg",
       title: "Explore Committees",
       desc: "Explore the committees and their agendas.",
       buttonText: "Explore Now",

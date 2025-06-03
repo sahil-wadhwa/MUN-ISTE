@@ -24,12 +24,17 @@ const initialFormData = {
 };
 
 const committees = [
-  "United Nations General Assembly (UNGA)",
-  "United Nations Security Council (UNSC)",
-  "United Nations Human Rights Council (UNHRC)",
-  "World Health Organization (WHO)",
-  "International Monetary Fund (IMF)",
-  "Crisis Committee: Global Cyber Security Council",
+"United Nations General Assembly (UNGA)",
+
+"All India Political Parties Meet (AIPPM)",
+
+"International Press (IP)",
+
+"United Nations Commission on the Status of Women (UNCSW)",
+
+"United Nations Development Programme (UNDP)",
+
+"United Nations Environment Programme (UNEP)"
 ];
 
 const Registration = () => {

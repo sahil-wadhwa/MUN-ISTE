@@ -24,17 +24,17 @@ const initialFormData = {
 };
 
 const committees = [
-"United Nations General Assembly (UNGA)",
+  "United Nations General Assembly (UNGA)",
 
-"All India Political Parties Meet (AIPPM)",
+  "All India Political Parties Meet (AIPPM)",
 
-"International Press (IP)",
+  "International Press (IP)",
 
-"United Nations Commission on the Status of Women (UNCSW)",
+  "United Nations Commission on the Status of Women (UNCSW)",
 
-"United Nations Development Programme (UNDP)",
+  "United Nations Development Programme (UNDP)",
 
-"United Nations Environment Programme (UNEP)"
+  "United Nations Environment Programme (UNEP)",
 ];
 
 const Registration = () => {
@@ -94,13 +94,17 @@ const Registration = () => {
     setIsSubmitting(true);
 
     try {
-      const response = await fetch("http://localhost:5000/api/register", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(formData),
-      });
+      const response = await fetch(
+        "https://iste-mun-backend.vercel.app/api/register",
+        {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify(formData),
+        }
+      );
 
       const result = await response.json();
+      console.log(response);
 
       if (response.ok) {
         console.log("Server response success:", result);
@@ -183,64 +187,108 @@ const Registration = () => {
         <div className="max-w-4xl mx-auto bg-black rounded-lg shadow-md overflow-hidden">
           <div className="flex flex-wrap">
             <div className="w-full lg:w-1/3 bg-gradient-to-br from-red-600 to-red-800 p-8 text-white hidden lg:block shadow-xl rounded-lg font-sans tracking-wide">
-  <h3 className="text-3xl font-bold mb-6 flex items-center gap-2">
-    {/* <svg className="w-6 h-6 text-white/90" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24">
+              <h3 className="text-3xl font-bold mb-6 flex items-center gap-2">
+                {/* <svg className="w-6 h-6 text-white/90" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24">
       <path d="M12 4v16m8-8H4" />
     </svg> */}
-    Registration Details
-  </h3>
+                Registration Details
+              </h3>
 
-  {/* Delegate Fee Structure */}
-  <div className="mb-10">
-    <h4 className="text-xl font-semibold mb-3 flex items-center gap-2">
-      <svg className="w-5 h-5 text-white/70" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24">
-        <path d="M17 9V7a5 5 0 00-10 0v2M5 12h14" />
-      </svg>
-      Delegate Fee Structure
-    </h4>
+              {/* Delegate Fee Structure */}
+              <div className="mb-10">
+                <h4 className="text-xl font-semibold mb-3 flex items-center gap-2">
+                  <svg
+                    className="w-5 h-5 text-white/70"
+                    fill="none"
+                    stroke="currentColor"
+                    strokeWidth="2"
+                    viewBox="0 0 24 24"
+                  >
+                    <path d="M17 9V7a5 5 0 00-10 0v2M5 12h14" />
+                  </svg>
+                  Delegate Fee Structure
+                </h4>
 
-    <div className="pl-2 border-l-4 border-white/30 ml-1">
-      <p className="text-red-100 font-semibold underline mb-2">FOR DELEGATES</p>
-      <p className="text-white/80 mb-1">External Participants: <span className="font-medium">₹4000</span></p>
-      <p className="text-white/80 mb-4">CU Students: <span className="font-medium">₹3500</span></p>
+                <div className="pl-2 border-l-4 border-white/30 ml-1">
+                  <p className="text-red-100 font-semibold underline mb-2">
+                    FOR DELEGATES
+                  </p>
+                  <p className="text-white/80 mb-1">
+                    External Participants:{" "}
+                    <span className="font-medium">₹4000</span>
+                  </p>
+                  <p className="text-white/80 mb-4">
+                    CU Students: <span className="font-medium">₹3500</span>
+                  </p>
 
-      <p className="text-red-100 font-semibold underline mb-2">FOR INTERNATIONAL PRESS</p>
-      <p className="text-white/80 mb-1">External Participants: <span className="font-medium">₹3500</span></p>
-      <p className="text-white/80">CU Students: <span className="font-medium">₹3000</span></p>
-    </div>
-  </div>
+                  <p className="text-red-100 font-semibold underline mb-2">
+                    FOR INTERNATIONAL PRESS
+                  </p>
+                  <p className="text-white/80 mb-1">
+                    External Participants:{" "}
+                    <span className="font-medium">₹3500</span>
+                  </p>
+                  <p className="text-white/80">
+                    CU Students: <span className="font-medium">₹3000</span>
+                  </p>
+                </div>
+              </div>
 
-  {/* Announcement */}
-  <div className="mb-10">
-    <h4 className="text-xl font-semibold mb-3 flex items-center gap-2">
-      <svg className="w-5 h-5 text-white/70" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24">
-        <path d="M12 8v4l3 3M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
-      </svg>
-      Announcement
-    </h4>
-    <p className="text-white/80 leading-relaxed">
-      Registrations opening soon. Stay tuned for updates on <span className="font-semibold">committees</span>, <span className="font-semibold">agendas</span>, and the official portfolio matrix.
-    </p>
-  </div>
+              {/* Announcement */}
+              <div className="mb-10">
+                <h4 className="text-xl font-semibold mb-3 flex items-center gap-2">
+                  <svg
+                    className="w-5 h-5 text-white/70"
+                    fill="none"
+                    stroke="currentColor"
+                    strokeWidth="2"
+                    viewBox="0 0 24 24"
+                  >
+                    <path d="M12 8v4l3 3M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+                  </svg>
+                  Announcement
+                </h4>
+                <p className="text-white/80 leading-relaxed">
+                  Registrations opening soon. Stay tuned for updates on{" "}
+                  <span className="font-semibold">committees</span>,{" "}
+                  <span className="font-semibold">agendas</span>, and the
+                  official portfolio matrix.
+                </p>
+              </div>
 
-  {/* Contact Info */}
-  <div>
-    <h4 className="text-xl font-semibold mb-3 flex items-center gap-2">
-      <svg className="w-5 h-5 text-white/70" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24">
-        <path d="M21 10c0 6-9 12-9 12S3 16 3 10a9 9 0 1118 0z" />
-      </svg>
-      Need Help?
-    </h4>
-    <div className="text-white/80 space-y-1">
-      <p>Tanisha: <span className="font-medium">+91 98785 33880</span></p>
-      <p>Krishnam: <span className="font-medium">+91 76961 27374</span></p>
-      <p className="pt-2 text-white/90 text-sm">
-        Our team will reach out to you for further process and registration.<br />
-        Please do <strong className="text-red-200">not</strong> pay to any unofficial sources.
-      </p>
-    </div>
-  </div>
-</div>
+              {/* Contact Info */}
+              <div>
+                <h4 className="text-xl font-semibold mb-3 flex items-center gap-2">
+                  <svg
+                    className="w-5 h-5 text-white/70"
+                    fill="none"
+                    stroke="currentColor"
+                    strokeWidth="2"
+                    viewBox="0 0 24 24"
+                  >
+                    <path d="M21 10c0 6-9 12-9 12S3 16 3 10a9 9 0 1118 0z" />
+                  </svg>
+                  Need Help?
+                </h4>
+                <div className="text-white/80 space-y-1">
+                  <p>
+                    Tanisha:{" "}
+                    <span className="font-medium">+91 98785 33880</span>
+                  </p>
+                  <p>
+                    Krishnam:{" "}
+                    <span className="font-medium">+91 76961 27374</span>
+                  </p>
+                  <p className="pt-2 text-white/90 text-sm">
+                    Our team will reach out to you for further process and
+                    registration.
+                    <br />
+                    Please do <strong className="text-red-200">not</strong> pay
+                    to any unofficial sources.
+                  </p>
+                </div>
+              </div>
+            </div>
 
             <div className="w-full lg:w-2/3 p-8 bg-black rounded-lg shadow-lg">
               <form onSubmit={handleSubmit}>

@@ -259,25 +259,41 @@ const Registration = () => {
 
                 <div className="pl-2 border-l-4 border-white/30 ml-1">
                   <p className="text-red-100 font-semibold underline mb-2">
-                    FOR DELEGATES
+                    FOR UN COMMITTEES
                   </p>
                   <p className="text-white/80 mb-1">
-                    External Participants:{" "}
+                    External Participants (With Accommodation):{" "}
                     <span className="font-medium">₹4000</span>
                   </p>
+                  <p className="text-white/80 mb-1">
+                    External Participants (Without Accommodation):{" "}
+                    <span className="font-medium">₹3000</span>
+                  </p>
                   <p className="text-white/80 mb-4">
-                    CU Students: <span className="font-medium">₹3500</span>
+                    CU Students (Without Accommodation):{" "}
+                    <span className="font-medium">₹2800</span>
                   </p>
 
                   <p className="text-red-100 font-semibold underline mb-2">
                     FOR INTERNATIONAL PRESS
                   </p>
                   <p className="text-white/80 mb-1">
-                    External Participants:{" "}
+                    External Participants (With Accommodation):{" "}
                     <span className="font-medium">₹3500</span>
                   </p>
-                  <p className="text-white/80">
-                    CU Students: <span className="font-medium">₹3000</span>
+                  <p className="text-white/80 mb-1">
+                    External Participants (Without Accommodation):{" "}
+                    <span className="font-medium">₹2500</span>
+                  </p>
+                  <p className="text-white/80 mb-4">
+                    CU Students (Without Accommodation):{" "}
+                    <span className="font-medium">₹2300</span>
+                  </p>
+
+                  <p className="text-white/70 text-sm italic">
+                    Note: Each delegate will receive an ID card, plea card,
+                    folder, notepad, and pen. Accommodation will also be
+                    provided for a comfortable experience.
                   </p>
                 </div>
               </div>

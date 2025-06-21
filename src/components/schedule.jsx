@@ -148,16 +148,6 @@ const Schedule = () => {
             </motion.div>
           </AnimatePresence>
         </div>
-
-        {/* Button */}
-        <div className="text-center mt-16">
-          <a
-            href="#"
-            className="inline-block px-8 py-3 bg-red-600 hover:bg-red-700 text-white font-semibold rounded-lg shadow-lg transition-all duration-300"
-          >
-            Download Full Schedule
-          </a>
-        </div>
       </div>
     </section>
   );

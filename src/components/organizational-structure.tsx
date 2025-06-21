@@ -26,7 +26,7 @@ const executiveBoard = [
     position: "Secretary General",
     department: "",
     bio: "Leading the conference with vision and dedication, ensuring excellence in every aspect of the MUN experience.",
-    image: "/assets/",
+    image: "/assets/sahil.jpg",
     icon: Crown,
   },
   {
@@ -35,7 +35,7 @@ const executiveBoard = [
     position: "Chief Advisor",
     department: "",
     bio: "Providing strategic guidance and mentorship to ensure the highest standards of conference execution.",
-    image: "/assets/",
+    image: "/assets/ani.jpg",
     icon: Shield,
   },
 ]
@@ -73,7 +73,7 @@ const deputyBoard = [
 const usgPositions = [
   {
     id: 1,
-    name: "Dinky Khurrana & Shreyanshi Soor",
+    name: "Dinky Khurrana",
     position: "USG Delegate Affairs",
     department: "",
     bio: "Managing delegate experience and ensuring smooth committee proceedings.",
@@ -82,6 +82,15 @@ const usgPositions = [
   },
   {
     id: 2,
+    name: "Shreyanshi Soor",
+    position: "USG Delegate Affairs",
+    department: "",
+    bio: "Managing delegate experience and ensuring smooth committee proceedings.",
+    image: "/assets/Shreyanshi.jpg",
+    icon: Users,
+  },
+  {
+    id: 3,
     name: "Tanisha Goyal",
     position: "USG Outreach and Marketing",
     department: "",
@@ -90,7 +99,7 @@ const usgPositions = [
     icon: Megaphone,
   },
   {
-    id: 3,
+    id: 4,
     name: "Krishnam Gupta",
     position: "USG Finance",
     department: "",
@@ -99,7 +108,7 @@ const usgPositions = [
     icon: DollarSign,
   },
   {
-    id: 4,
+    id: 5,
     name: "Amit Kumar",
     position: "USG Training and Workshop",
     department: "",
@@ -108,7 +117,7 @@ const usgPositions = [
     icon: BookOpen,
   },
   {
-    id: 5,
+    id: 6,
     name: "Avleenjot Kaur",
     position: "USG Public Relations and Media",
     department: "",
@@ -117,7 +126,7 @@ const usgPositions = [
     icon: Newspaper,
   },
   {
-    id: 6,
+    id: 7,
     name: "Khushi",
     position: "USG Press and Journalism",
     department: "",
@@ -126,23 +135,14 @@ const usgPositions = [
     icon: Newspaper,
   },
   {
-    id: 7,
+    id: 8,
     name: "Gaurav Thakur",
     position: "USG IT/Tech",
     department: "",
     bio: "Managing technical infrastructure and digital systems for the conference.",
     image: "/assets/Gaurav Thakur.jpg",
     icon: Code,
-  },
-  {
-    id: 8,
-    name: "Aditi Anand",
-    position: "USG Creatives",
-    department: "",
-    bio: "Leading creative design and visual identity for all conference materials.",
-    image: "/assets/Aditi Anand .jpg",
-    icon: Palette,
-  },
+  }
 ]
 
 const departments = [
@@ -176,17 +176,18 @@ const departments = [
     name: "Technology Department",
     icon: Code,
     lead: {
-      name: "Gaurav Thakur",
-      position: "USG IT/Tech",
-      department: "",
-      image: "/assets/Gaurav Thakur.jpg",
-    },
-    team: [
-      {
-        name: "Abhay",
+      name: "Abhay",
         position: "Web Developer",
         department: "Tech Team",
         image: "/assets/Abhay Bansal.jpg",
+      
+    },
+    team: [
+      {
+        name: "Gaurav Thakur",
+      position: "USG IT/Tech",
+      department: "",
+      image: "/assets/Gaurav Thakur.jpg",
       },
       {
         name: "Piyush",
@@ -239,7 +240,7 @@ const OrganizationalStructure = () => {
   const MemberCard = ({
     member,
     index,
-    size = "default",
+    size = "large",
   }: { member: any; index: number; size?: "large" | "default" | "small" }) => {
     const IconComponent = member.icon
 
@@ -250,7 +251,7 @@ const OrganizationalStructure = () => {
     }
 
     const imageHeights = {
-      large: "h-64",
+      large: "h-90",
       default: "h-56",
       small: "h-48",
     }

@@ -8,9 +8,11 @@ import Footer from "./components/Footer";
 import Home from "./pages/HomePage";
 import Committees from "./pages/Committees";
 import Registration from "./pages/Registration";
-import Faculty from "./components/Faculty";
+
 import Schedule from "./components/schedule";
 import ScrollToTop from "./components/ScrollToTop";
+import OrganizationalStructure from "./components/organizational-structure";
+import AwardsCertifications from "./pages/awards-certifications";
 
 function App() {
   return (
@@ -21,8 +23,9 @@ function App() {
         <Route path="/" element={<Home />} />
         <Route path="/committees" element={<Committees />} />
         <Route path="/registration" element={<Registration />} />
-        <Route path="/faculty" element={<Faculty/>} />
+        <Route path="/faculty" element={<OrganizationalStructure/>} />
         <Route path="/schedule" element={<Schedule/>} />
+        <Route path="/awards" element={<AwardsCertifications/>} />
       </Routes>
       <Footer />
     </div>

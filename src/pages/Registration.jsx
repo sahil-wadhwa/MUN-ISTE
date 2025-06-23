@@ -25,15 +25,10 @@ const initialFormData = {
 
 const committees = [
   "United Nations General Assembly (UNGA)",
-
   "All India Political Parties Meet (AIPPM)",
-
   "International Press (IP)",
-
   "United Nations Commission on the Status of Women (UNCSW)",
-
   "United Nations Development Programme (UNDP)",
-
   "United Nations Environment Programme (UNEP)",
 ];
 
@@ -42,6 +37,7 @@ const Registration = () => {
   const [errors, setErrors] = useState({});
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [isSubmitted, setIsSubmitted] = useState(false);
+  const [showDetailsMobile, setShowDetailsMobile] = useState(false); // New state for mobile details visibility
 
   const handleChange = (e) => {
     const { name, type, value, checked } = e.target;
@@ -123,9 +119,10 @@ const Registration = () => {
       setIsSubmitting(false);
     }
   };
+
   if (isSubmitted) {
     return (
-      <section id="registration" className="py-20 bg-gray-50">
+      <section id="registration" className="py-10 sm:py-20 bg-gray-50">
         <div className="container mx-auto px-4">
           <div className="max-w-2xl mx-auto text-center">
             <div className="w-20 h-20 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-6">
@@ -144,17 +141,17 @@ const Registration = () => {
                 />
               </svg>
             </div>
-            <h2 className="text-3xl font-bold text-red-600 mb-4">
+            <h2 className="text-2xl sm:text-3xl font-bold text-red-600 mb-4">
               Registration Successful!
             </h2>
-            <p className="text-black mb-8">
+            <p className="text-black mb-8 text-sm sm:text-base">
               Thank you for registering for the CUMUN Conference 2025 (September
               1st Week), a part of Technisia ISTE. We'll connect with you soon
               for further process.
             </p>
             <button
               onClick={() => setIsSubmitted(false)}
-              className="px-6 py-3 bg-red-600 hover:bg-red-700 text-white font-medium rounded-md transition-colors duration-300"
+              className="px-6 py-3 bg-red-600 hover:bg-red-700 text-white font-medium rounded-md transition-colors duration-300 text-sm sm:text-base"
             >
               Register Another Delegate
             </button>
@@ -163,15 +160,16 @@ const Registration = () => {
       </section>
     );
   }
+
   return (
-    <section id="registration" className="py-20 bg-gray-50">
+    <section id="registration" className="py-10 sm:py-20 bg-gray-50">
       <div className="container mx-auto px-4">
-        <div className="text-center mb-16">
-          <h2 className="text-3xl md:text-4xl font-bold text-red-600 mb-4">
+        <div className="text-center mb-8 sm:mb-16">
+          <h2 className="text-3xl md:text-4xl font-bold text-red-600 mb-2 sm:mb-4">
             Registration
           </h2>
-          <div className="w-20 h-1 bg-yellow-600 mx-auto mb-6"></div>
-          <p className="text-black max-w-3xl mx-auto">
+          <div className="w-16 sm:w-20 h-1 bg-yellow-600 mx-auto mb-4 sm:mb-6"></div>
+          <p className="text-black max-w-3xl mx-auto text-sm sm:text-base">
             Join us for the CU-MUN Conference 2025. Fill out the form below to
             register as a delegate. Early registration is recommended as
             committee spots fill up quickly.
@@ -231,7 +229,90 @@ const Registration = () => {
         </div>
 
         <div className="max-w-4xl mx-auto bg-black rounded-lg shadow-md overflow-hidden">
+          {/* Registration Details Section - Now visible on mobile and collapsible */}
+          <div className="lg:hidden p-6 bg-gradient-to-br from-red-600 to-red-800 text-white">
+            <button
+              onClick={() => setShowDetailsMobile(!showDetailsMobile)}
+              className="w-full text-left flex justify-between items-center text-xl font-bold mb-4"
+            >
+              Registration Details
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                className={`h-6 w-6 transform transition-transform ${
+                  showDetailsMobile ? "rotate-180" : ""
+                }`}
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke="currentColor"
+              >
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  strokeWidth={2}
+                  d="M19 9l-7 7-7-7"
+                />
+              </svg>
+            </button>
+            {showDetailsMobile && (
+              <div className="pt-4 border-t border-white/20">
+                <h4 className="text-lg font-semibold mb-3 flex items-center gap-2">
+                  <svg
+                    className="w-5 h-5 text-white/70"
+                    fill="none"
+                    stroke="currentColor"
+                    strokeWidth="2"
+                    viewBox="0 0 24 24"
+                  >
+                    <path d="M17 9V7a5 5 0 00-10 0v2M5 12h14" />
+                  </svg>
+                  Delegate Fee Structure
+                </h4>
+
+                <div className="pl-2 border-l-4 border-white/30 ml-1">
+                  <p className="text-red-100 font-semibold underline mb-2">
+                    FOR UN COMMITTEES
+                  </p>
+                  <p className="text-white/80 mb-1">
+                    External Participants (With Accommodation):{" "}
+                    <span className="font-medium">₹4000</span>
+                  </p>
+                  <p className="text-white/80 mb-1">
+                    External Participants (Without Accommodation):{" "}
+                    <span className="font-medium">₹3000</span>
+                  </p>
+                  <p className="text-white/80 mb-4">
+                    CU Students (Without Accommodation):{" "}
+                    <span className="font-medium">₹2800</span>
+                  </p>
+
+                  <p className="text-red-100 font-semibold underline mb-2">
+                    FOR INTERNATIONAL PRESS
+                  </p>
+                  <p className="text-white/80 mb-1">
+                    External Participants (With Accommodation):{" "}
+                    <span className="font-medium">₹3500</span>
+                  </p>
+                  <p className="text-white/80 mb-1">
+                    External Participants (Without Accommodation):{" "}
+                    <span className="font-medium">₹2500</span>
+                  </p>
+                  <p className="text-white/80 mb-4">
+                    CU Students (Without Accommodation):{" "}
+                    <span className="font-medium">₹2300</span>
+                  </p>
+
+                  <p className="text-white/70 text-sm italic">
+                    Note: Each delegate will receive an ID card, plea card,
+                    folder, notepad, and pen. Accommodation will also be
+                    provided for a comfortable experience.
+                  </p>
+                </div>
+              </div>
+            )}
+          </div>
+
           <div className="flex flex-wrap">
+            {/* Desktop-only Registration Details Section */}
             <div className="w-full lg:w-1/3 bg-gradient-to-br from-red-600 to-red-800 p-8 text-white hidden lg:block shadow-xl rounded-lg font-sans tracking-wide">
               <h3 className="text-3xl font-bold mb-6 flex items-center gap-2">
                 Registration Details
@@ -294,9 +375,9 @@ const Registration = () => {
               </div>
             </div>
 
-            <div className="w-full lg:w-2/3 p-8 bg-black rounded-lg shadow-lg">
+            <div className="w-full lg:w-2/3 p-6 sm:p-8 bg-black rounded-lg shadow-lg">
               <form onSubmit={handleSubmit}>
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-4 sm:gap-6 mb-4 sm:mb-6">
                   <div>
                     <label
                       htmlFor="fullName"
@@ -311,14 +392,14 @@ const Registration = () => {
                       value={formData.fullName}
                       onChange={handleChange}
                       placeholder="Enter your full name"
-                      className={`w-full px-4 py-2 border rounded-md bg-gray-900 text-white shadow-sm focus:outline-none focus:ring-2 focus:ring-red-600 transition ${
+                      className={`w-full px-3 py-2 sm:px-4 sm:py-2 border rounded-md bg-gray-900 text-white shadow-sm focus:outline-none focus:ring-2 focus:ring-red-600 transition ${
                         errors.fullName
                           ? "border-red-600"
                           : "border-gray-700 focus:border-red-600"
                       }`}
                     />
                     {errors.fullName && (
-                      <p className="mt-1 text-sm text-red-600">
+                      <p className="mt-1 text-xs text-red-600">
                         {errors.fullName}
                       </p>
                     )}
@@ -337,21 +418,21 @@ const Registration = () => {
                       value={formData.email}
                       onChange={handleChange}
                       placeholder="your.email@example.com"
-                      className={`w-full px-4 py-2 border rounded-md bg-gray-900 text-white shadow-sm focus:outline-none focus:ring-2 focus:ring-red-600 transition ${
+                      className={`w-full px-3 py-2 sm:px-4 sm:py-2 border rounded-md bg-gray-900 text-white shadow-sm focus:outline-none focus:ring-2 focus:ring-red-600 transition ${
                         errors.email
                           ? "border-red-600"
                           : "border-gray-700 focus:border-red-600"
                       }`}
                     />
                     {errors.email && (
-                      <p className="mt-1 text-sm text-red-600">
+                      <p className="mt-1 text-xs text-red-600">
                         {errors.email}
                       </p>
                     )}
                   </div>
                 </div>
 
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-4 sm:gap-6 mb-4 sm:mb-6">
                   <div>
                     <label
                       htmlFor="university"
@@ -366,14 +447,14 @@ const Registration = () => {
                       value={formData.university}
                       onChange={handleChange}
                       placeholder="Your university or institution"
-                      className={`w-full px-4 py-2 border rounded-md bg-gray-900 text-white shadow-sm focus:outline-none focus:ring-2 focus:ring-red-600 transition ${
+                      className={`w-full px-3 py-2 sm:px-4 sm:py-2 border rounded-md bg-gray-900 text-white shadow-sm focus:outline-none focus:ring-2 focus:ring-red-600 transition ${
                         errors.university
                           ? "border-red-600"
                           : "border-gray-700 focus:border-red-600"
                       }`}
                     />
                     {errors.university && (
-                      <p className="mt-1 text-sm text-red-600">
+                      <p className="mt-1 text-xs text-red-600">
                         {errors.university}
                       </p>
                     )}
@@ -392,21 +473,21 @@ const Registration = () => {
                       value={formData.phoneNumber}
                       onChange={handleChange}
                       placeholder="+1234567890"
-                      className={`w-full px-4 py-2 border rounded-md bg-gray-900 text-white shadow-sm focus:outline-none focus:ring-2 focus:ring-red-600 transition ${
+                      className={`w-full px-3 py-2 sm:px-4 sm:py-2 border rounded-md bg-gray-900 text-white shadow-sm focus:outline-none focus:ring-2 focus:ring-red-600 transition ${
                         errors.phoneNumber
                           ? "border-red-600"
                           : "border-gray-700 focus:border-red-600"
                       }`}
                     />
                     {errors.phoneNumber && (
-                      <p className="mt-1 text-sm text-red-600">
+                      <p className="mt-1 text-xs text-red-600">
                         {errors.phoneNumber}
                       </p>
                     )}
                   </div>
                 </div>
 
-                <div className="mb-6">
+                <div className="mb-4 sm:mb-6">
                   <label
                     htmlFor="delegateType"
                     className="block text-sm font-medium text-gray-300 mb-1"
@@ -418,7 +499,7 @@ const Registration = () => {
                     name="delegateType"
                     value={formData.delegateType}
                     onChange={handleChange}
-                    className={`w-full px-4 py-2 border rounded-md bg-gray-900 text-white shadow-sm focus:outline-none focus:ring-2 focus:ring-red-600 transition ${
+                    className={`w-full px-3 py-2 sm:px-4 sm:py-2 border rounded-md bg-gray-900 text-white shadow-sm focus:outline-none focus:ring-2 focus:ring-red-600 transition ${
                       errors.delegateType
                         ? "border-red-600"
                         : "border-gray-700 focus:border-red-600"
@@ -434,13 +515,13 @@ const Registration = () => {
                     <option value="Delegation">Delegation (Group)</option>
                   </select>
                   {errors.delegateType && (
-                    <p className="mt-1 text-sm text-red-600">
+                    <p className="mt-1 text-xs text-red-600">
                       {errors.delegateType}
                     </p>
                   )}
                 </div>
 
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-4 sm:gap-6 mb-4 sm:mb-6">
                   <div>
                     <label
                       htmlFor="committeePreference1"
@@ -453,7 +534,7 @@ const Registration = () => {
                       name="committeePreference1"
                       value={formData.committeePreference1}
                       onChange={handleChange}
-                      className={`w-full px-4 py-2 border rounded-md bg-gray-900 text-white shadow-sm focus:outline-none focus:ring-2 focus:ring-red-600 transition ${
+                      className={`w-full px-3 py-2 sm:px-4 sm:py-2 border rounded-md bg-gray-900 text-white shadow-sm focus:outline-none focus:ring-2 focus:ring-red-600 transition ${
                         errors.committeePreference1
                           ? "border-red-600"
                           : "border-gray-700 focus:border-red-600"
@@ -469,7 +550,7 @@ const Registration = () => {
                       ))}
                     </select>
                     {errors.committeePreference1 && (
-                      <p className="mt-1 text-sm text-red-600">
+                      <p className="mt-1 text-xs text-red-600">
                         {errors.committeePreference1}
                       </p>
                     )}
@@ -487,7 +568,7 @@ const Registration = () => {
                       name="committeePreference2"
                       value={formData.committeePreference2}
                       onChange={handleChange}
-                      className="w-full px-4 py-2 border rounded-md bg-gray-900 text-white shadow-sm focus:outline-none focus:ring-2 focus:ring-red-600 transition border-gray-700 focus:border-red-600"
+                      className="w-full px-3 py-2 sm:px-4 sm:py-2 border rounded-md bg-gray-900 text-white shadow-sm focus:outline-none focus:ring-2 focus:ring-red-600 transition border-gray-700 focus:border-red-600"
                     >
                       <option value="" className="text-gray-500">
                         Select committee (optional)
@@ -501,7 +582,7 @@ const Registration = () => {
                   </div>
                 </div>
 
-                <div className="mb-6">
+                <div className="mb-4 sm:mb-6">
                   <label
                     htmlFor="previousExperience"
                     className="block text-sm font-medium text-gray-300 mb-1"
@@ -515,22 +596,22 @@ const Registration = () => {
                     value={formData.previousExperience}
                     onChange={handleChange}
                     placeholder="Tell us about your previous experience"
-                    className="w-full px-4 py-2 border rounded-md bg-gray-900 text-white shadow-sm focus:outline-none focus:ring-2 focus:ring-red-600 transition border-gray-700 focus:border-red-600"
+                    className="w-full px-3 py-2 sm:px-4 sm:py-2 border rounded-md bg-gray-900 text-white shadow-sm focus:outline-none focus:ring-2 focus:ring-red-600 transition border-gray-700 focus:border-red-600"
                   />
                 </div>
 
-                <div className="mb-6 flex items-center space-x-3">
+                <div className="mb-4 sm:mb-6 flex items-center space-x-3">
                   <input
                     type="checkbox"
                     id="accommodationRequired"
                     name="accommodationRequired"
                     checked={formData.accommodationRequired}
                     onChange={handleChange}
-                    className="h-5 w-5 text-red-600 border-gray-600 rounded focus:ring-red-500"
+                    className="h-4 w-4 sm:h-5 sm:w-5 text-red-600 border-gray-600 rounded focus:ring-red-500"
                   />
                   <label
                     htmlFor="accommodationRequired"
-                    className="text-gray-300"
+                    className="text-gray-300 text-sm sm:text-base"
                   >
                     Require Accommodation
                   </label>
@@ -543,18 +624,21 @@ const Registration = () => {
                     name="agreeToTerms"
                     checked={formData.agreeToTerms}
                     onChange={handleChange}
-                    className={`h-5 w-5 border rounded focus:ring-2 ${
+                    className={`h-4 w-4 sm:h-5 sm:w-5 border rounded focus:ring-2 ${
                       errors.agreeToTerms
                         ? "border-red-600 focus:ring-red-600"
                         : "border-gray-600 focus:ring-red-500"
                     }`}
                   />
-                  <label htmlFor="agreeToTerms" className="text-gray-300">
+                  <label
+                    htmlFor="agreeToTerms"
+                    className="text-gray-300 text-sm sm:text-base"
+                  >
                     I agree to the terms and conditions.*
                   </label>
                 </div>
                 {errors.agreeToTerms && (
-                  <p className="mt-1 text-sm text-red-600">
+                  <p className="mt-1 text-xs text-red-600">
                     {errors.agreeToTerms}
                   </p>
                 )}
@@ -562,7 +646,7 @@ const Registration = () => {
                 <button
                   type="submit"
                   disabled={isSubmitting}
-                  className={`w-full py-3 bg-red-600 hover:bg-red-700 text-white font-semibold rounded-md transition-colors duration-300 ${
+                  className={`w-full py-2 sm:py-3 bg-red-600 hover:bg-red-700 text-white font-semibold rounded-md transition-colors duration-300 text-base sm:text-lg ${
                     isSubmitting ? "opacity-60 cursor-not-allowed" : ""
                   }`}
                 >

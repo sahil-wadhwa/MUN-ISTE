@@ -13,19 +13,20 @@ const images = [
 ];
 
 const breakpointColumnsObj = {
-  default: 4,
-  1100: 3,
-  700: 2,
-  500: 1,
+  default: 4,    // Default for large screens
+  1100: 3,       // For screens up to 1100px
+  700: 2,        // For screens up to 700px (tablets and larger phones)
+  400: 2,        // For screens up to 400px (most smartphones will hit this)
+  320: 1,        // For very small screens (e.g., iPhone SE, very narrow views)
 };
 
 const Gallery: React.FC = () => {
   return (
-    <section className="max-w-7xl mx-auto px-4 py-12 relative overflow-visible">
+    <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 sm:py-12 relative overflow-visible">
       {/* Centered heading with Merriweather font */}
-      <div className="flex justify-center mb-12">
+      <div className="flex justify-center mb-8 sm:mb-12">
         <h2
-          className="text-3xl font-bold border-b-4 border-red-600 pb-3"
+          className="text-2xl sm:text-3xl font-bold border-b-4 border-red-600 pb-2 sm:pb-3 text-center"
           style={{ fontFamily: '"Merriweather", serif' }}
         >
           CUMUN in Retrospect
@@ -40,7 +41,7 @@ const Gallery: React.FC = () => {
         {images.map(({ src, height }, index) => (
           <div
             key={index}
-            className="mb-6 relative rounded-xl overflow-hidden shadow-md hover:shadow-xl transition-shadow duration-300 cursor-pointer"
+            className="mb-4 sm:mb-6 relative rounded-xl overflow-hidden shadow-md hover:shadow-xl transition-shadow duration-300 cursor-pointer"
             style={{ height: `${height}px` }}
           >
             <img

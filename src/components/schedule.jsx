@@ -78,35 +78,36 @@ const Schedule = () => {
   };
 
   return (
-    <section id="schedule" className="py-20 bg-gradient-to-br from-white via-red-50 to-white">
+    <section id="schedule" className="py-12 sm:py-20 bg-gradient-to-br from-white via-red-50 to-white">
       <div className="container mx-auto px-4 max-w-6xl">
-        <div className="text-center mb-12">
+        <div className="text-center mb-10 sm:mb-12">
           <h2 className="text-3xl md:text-4xl font-bold text-red-600 mb-4">Conference Schedule</h2>
           <div className="w-20 h-1 bg-yellow-600 mx-auto mb-6"></div>
-          <p className="text-gray-700 text-base max-w-xl mx-auto">
+          <p className="text-gray-700 text-base max-w-xl mx-auto px-2">
             A three-day experience with inspiring sessions, debates, and networking opportunities.
           </p>
         </div>
 
-        {/* Day Tabs */}
-        <div className="flex justify-center flex-wrap gap-3 mb-14">
+        {/* Day Tabs - Adjusted for better mobile wrapping */}
+        <div className="flex justify-center flex-wrap gap-2 sm:gap-3 mb-10 sm:mb-14 px-2">
           {scheduleData.map((day, idx) => (
             <button
               key={idx}
               onClick={() => handleDayChange(idx)}
-              className={`flex items-center gap-2 px-6 py-2 rounded-lg text-sm font-semibold shadow-md transition-all duration-300 border
+              className={`flex items-center justify-center text-center gap-2 px-4 py-2 sm:px-6 sm:py-2 rounded-lg text-sm font-semibold shadow-md transition-all duration-300 border
                 ${activeDay === idx
                   ? "bg-red-600 text-white border-red-700"
                   : "bg-white text-red-600 border-red-200 hover:bg-red-50"}`}
             >
               <IconCalendar selected={activeDay === idx} />
-              <span>{day.day.split(" - ")[0]}</span>
+              <span className="hidden sm:inline">{day.day.split(" - ")[0]}</span>
+              <span className="inline sm:hidden">Day {idx + 1}</span>
             </button>
           ))}
         </div>
 
         {/* Schedule Events with Slide Animation */}
-        <div className="max-w-4xl mx-auto relative">
+        <div className="max-w-4xl mx-auto relative px-2">
           <AnimatePresence custom={direction} mode="wait">
             <motion.div
               key={activeDay}
@@ -116,10 +117,10 @@ const Schedule = () => {
               animate="center"
               exit="exit"
               transition={{ duration: 0.4, ease: "easeInOut" }}
-              className="border-l-4 border-red-200 pl-10 relative"
+              className="border-l-4 border-red-200 pl-6 sm:pl-10 relative"
             >
               <div className="absolute top-0 bottom-0 left-[7px] w-1 bg-gradient-to-b from-red-400 to-red-600 animate-pulse"></div>
-              <h3 className="text-2xl font-semibold text-center text-red-600 mb-10 tracking-wide">
+              <h3 className="text-xl sm:text-2xl font-semibold text-center text-red-600 mb-8 sm:mb-10 tracking-wide px-4">
                 {scheduleData[activeDay].day}
               </h3>
               {scheduleData[activeDay].events.map((event, idx) => (
@@ -128,12 +129,12 @@ const Schedule = () => {
                   initial={{ opacity: 0, y: 20 }}
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ delay: idx * 0.1 }}
-                  className="mb-12 relative group"
+                  className="mb-8 sm:mb-12 relative group"
                 >
-                  <span className="absolute -left-[19px] top-2 w-4 h-4 rounded-full bg-white border-4 border-red-600 group-hover:scale-110 transition-transform duration-300 shadow-md"></span>
-                  <div className="bg-white backdrop-blur-md border border-red-100 rounded-xl p-5 shadow-sm hover:shadow-lg transition-shadow duration-300">
-                    <div className="flex justify-between items-center mb-2">
-                      <h4 className="text-lg font-semibold text-red-700 tracking-tight">
+                  <span className="absolute -left-[19px] top-2 w-4 h-4 rounded-full bg-white border-4 border-600 group-hover:scale-110 transition-transform duration-300 shadow-md"></span>
+                  <div className="bg-white backdrop-blur-md border border-red-100 rounded-xl p-4 sm:p-5 shadow-sm hover:shadow-lg transition-shadow duration-300">
+                    <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center mb-2">
+                      <h4 className="text-base sm:text-lg font-semibold text-red-700 tracking-tight mb-1 sm:mb-0">
                         {event.title}
                       </h4>
                       <div className="flex items-center gap-1 text-red-500 text-sm font-medium">

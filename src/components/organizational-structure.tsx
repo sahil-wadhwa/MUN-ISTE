@@ -1,6 +1,6 @@
-"use client"
+"use client";
 
-import { useState, useEffect } from "react"
+import { useState, useEffect } from "react";
 import {
   ChevronDown,
   Code,
@@ -17,9 +17,9 @@ import {
   Sparkles,
   Mail,
   Phone,
-} from "lucide-react"
+} from "lucide-react";
 
-const executiveBoard = [
+const secretariatBoard = [
   {
     id: 1,
     name: "Sahil Wadhwa",
@@ -31,18 +31,6 @@ const executiveBoard = [
   },
   {
     id: 2,
-    name: "Animesh",
-    position: "Chief Advisor",
-    department: "",
-    bio: "Providing strategic guidance and mentorship to ensure the highest standards of conference execution.",
-    image: "/assets/ani.jpg",
-    icon: Shield,
-  },
-]
-
-const deputyBoard = [
-  {
-    id: 1,
     name: "Yatin Berry",
     position: "Deputy Secretary General",
     department: "",
@@ -51,7 +39,7 @@ const deputyBoard = [
     icon: Star,
   },
   {
-    id: 2,
+    id: 3,
     name: "Srishti Nautiyal",
     position: "Director General",
     department: "",
@@ -60,15 +48,28 @@ const deputyBoard = [
     icon: Sparkles,
   },
   {
-    id: 3,
+    id: 4,
     name: "Jatin Mittal",
     position: "Deputy Director General",
     department: "",
-    bio: "Coordinating between committees and ensuring operational excellence.",
+    bio: "Coordinating between committees and ensuring seamless operational excellence.",
     image: "/assets/Jatin Mittal.png",
     icon: Zap,
   },
-]
+];
+
+const advisorBoard = [
+  {
+    id: 5,
+    name: "Animesh",
+    position: "Advisor to Secretariat",
+    department: "",
+    bio: "Providing strategic guidance and mentorship to ensure the highest standards of conference execution.",
+    image: "/assets/ani.jpg",
+    icon: Shield,
+  },
+];
+
 
 const usgPositions = [
   {
@@ -113,7 +114,7 @@ const usgPositions = [
     position: "USG Training and Workshop",
     department: "",
     bio: "Conducting delegate training sessions and educational workshops.",
-    image: "/assets/Amit Kumar.jpg",
+    image: "/assets/Amit Kumar.png",
     icon: BookOpen,
   },
   {
@@ -136,14 +137,14 @@ const usgPositions = [
   },
   {
     id: 8,
-    name: "Gaurav Thakur",
+    name: "Abhay Bansal",
     position: "USG IT/Tech",
     department: "",
     bio: "Managing technical infrastructure and digital systems for the conference.",
-    image: "/assets/Gaurav Thakur.jpg",
+    image: "/assets/Abhay Bansal.jpg",
     icon: Code,
-  }
-]
+  },
+];
 
 const departments = [
   {
@@ -176,18 +177,17 @@ const departments = [
     name: "Technology Department",
     icon: Code,
     lead: {
-      name: "Abhay",
-        position: "Web Developer",
-        department: "Tech Team",
-        image: "/assets/Abhay Bansal.jpg",
-      
+      name: "Gaurav Thakur",
+      position: "Web Developer",
+      department: "Tech Team",
+      image: "/assets/Gaurav Thakur.jpg",
     },
     team: [
       {
-        name: "Gaurav Thakur",
-      position: "USG IT/Tech",
-      department: "",
-      image: "/assets/Gaurav Thakur.jpg",
+        name: "Abhay Bansal",
+        position: "USG IT/Tech",
+        department: "",
+        image: "/assets/Abhay Bansal.jpg",
       },
       {
         name: "Piyush",
@@ -222,49 +222,55 @@ const departments = [
       },
     ],
   },
-]
+];
 
 const OrganizationalStructure = () => {
-  const [selectedMember, setSelectedMember] = useState<any>(null)
-  const [expandedDept, setExpandedDept] = useState<string | null>(null)
-  const [isVisible, setIsVisible] = useState(false)
+  const [selectedMember, setSelectedMember] = useState<any>(null);
+  const [expandedDept, setExpandedDept] = useState<string | null>(null);
+  const [isVisible, setIsVisible] = useState(false);
 
   useEffect(() => {
-    setIsVisible(true)
-  }, [])
+    setIsVisible(true);
+  }, []);
 
   const toggleDepartment = (deptId: string) => {
-    setExpandedDept(expandedDept === deptId ? null : deptId)
-  }
+    setExpandedDept(expandedDept === deptId ? null : deptId);
+  };
 
   const MemberCard = ({
     member,
     index,
     size = "large",
-  }: { member: any; index: number; size?: "large" | "default" | "small" }) => {
-    const IconComponent = member.icon
+  }: {
+    member: any;
+    index: number;
+    size?: "large" | "default" | "small";
+  }) => {
+    const IconComponent = member.icon;
 
     const sizeClasses = {
       large: "p-8",
       default: "p-6",
       small: "p-4",
-    }
+    };
 
     const imageHeights = {
       large: "h-90",
       default: "h-56",
       small: "h-48",
-    }
+    };
 
     const iconSizes = {
       large: "w-8 h-8",
       default: "w-6 h-6",
       small: "w-5 h-5",
-    }
+    };
 
     return (
       <div
-        className={`group bg-white rounded-2xl shadow-lg hover:shadow-2xl transition-all duration-500 border border-red-100 hover:border-red-300 cursor-pointer transform hover:-translate-y-2 ${isVisible ? "translate-y-0 opacity-100" : "translate-y-10 opacity-0"}`}
+        className={`group bg-white rounded-2xl shadow-lg hover:shadow-2xl transition-all duration-500 border border-red-100 hover:border-red-300 cursor-pointer transform hover:-translate-y-2 ${
+          isVisible ? "translate-y-0 opacity-100" : "translate-y-10 opacity-0"
+        }`}
         style={{ transitionDelay: `${index * 100}ms` }}
         onClick={() => setSelectedMember(member)}
       >
@@ -294,11 +300,21 @@ const OrganizationalStructure = () => {
             {/* Name Overlay for better visibility */}
             <div className="absolute bottom-4 left-4 right-4">
               <h3
-                className={`font-bold text-white mb-1 drop-shadow-lg ${size === "large" ? "text-2xl" : size === "small" ? "text-lg" : "text-xl"}`}
+                className={`font-bold text-white mb-1 drop-shadow-lg ${
+                  size === "large"
+                    ? "text-2xl"
+                    : size === "small"
+                    ? "text-lg"
+                    : "text-xl"
+                }`}
               >
                 {member.name}
               </h3>
-              <p className={`text-white/90 font-semibold drop-shadow ${size === "large" ? "text-lg" : "text-base"}`}>
+              <p
+                className={`text-white/90 font-semibold drop-shadow ${
+                  size === "large" ? "text-lg" : "text-base"
+                }`}
+              >
                 {member.position}
               </p>
             </div>
@@ -312,7 +328,11 @@ const OrganizationalStructure = () => {
               <p className="text-gray-500 text-sm">{member.department}</p>
             </div>
 
-            {member.bio && <p className="text-gray-600 text-sm leading-relaxed mb-4 line-clamp-3">{member.bio}</p>}
+            {member.bio && (
+              <p className="text-gray-600 text-sm leading-relaxed mb-4 line-clamp-3">
+                {member.bio}
+              </p>
+            )}
 
             {/* Action Buttons */}
             <div className="flex justify-center space-x-2 pt-4 border-t border-gray-100">
@@ -328,64 +348,76 @@ const OrganizationalStructure = () => {
           </div>
         </div>
       </div>
-    )
-  }
+    );
+  };
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-gray-50 via-white to-red-50">
       {/* Header */}
       <div className="bg-white shadow-sm border-b border-red-100">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8 pt-24 pb-8">
-          <div className="text-center">
-            <h1 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-red-600 mb-4">Organizational Structure</h1>
-            <div className="w-24 h-1 bg-red-600 mx-auto mb-6"></div>
-            <p className="text-gray-600 max-w-3xl mx-auto text-base sm:text-lg">
-              Meet our dedicated leadership team and department heads working together to deliver an exceptional Model
-              United Nations experience.
-            </p>
-          </div>
+          <div className="text-center"></div>
         </div>
       </div>
 
       {/* Main Content */}
       <div className="container mx-auto px-4 sm:px-6 lg:px-8 pt-8 pb-12">
         {/* Executive Board */}
+        {/* Secretariat Main Line */}
         <section className="mb-20">
           <div className="text-center mb-12">
             <div className="inline-flex items-center justify-center mb-6">
               <div className="h-px bg-red-300 flex-1 max-w-20 sm:max-w-32"></div>
-              <h2 className="px-6 text-2xl sm:text-3xl font-bold text-red-600">Executive Board</h2>
+              <h1 className="px-6 text-3xl sm:text-4xl lg:text-5xl font-bold text-red-600">
+                Secretariat
+              </h1>
               <div className="h-px bg-red-300 flex-1 max-w-20 sm:max-w-32"></div>
             </div>
             <p className="text-gray-600 max-w-2xl mx-auto">
-              The executive leadership providing strategic direction and oversight for the entire conference.
+              The core leadership team driving coordination and strategic
+              excellence of the conference.
             </p>
           </div>
 
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 max-w-4xl mx-auto">
-            {executiveBoard.map((member, index) => (
-              <MemberCard key={member.id} member={member} index={index} size="large" />
+          {/* Row of 4 */}
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 max-w-7xl mx-auto mb-12">
+            {secretariatBoard.map((member, index) => (
+              <MemberCard
+                key={member.id}
+                member={member}
+                index={index}
+                size="large"
+              />
             ))}
           </div>
         </section>
-
         {/* Deputy Board */}
         <section className="mb-20">
           <div className="text-center mb-12">
             <div className="inline-flex items-center justify-center mb-6">
               <div className="h-px bg-red-300 flex-1 max-w-20 sm:max-w-32"></div>
-              <h2 className="px-6 text-2xl sm:text-3xl font-bold text-red-600">Deputy Board</h2>
+              <h2 className="px-6 text-2xl sm:text-3xl font-bold text-red-600">
+                Advisory Board
+              </h2>
               <div className="h-px bg-red-300 flex-1 max-w-20 sm:max-w-32"></div>
             </div>
             <p className="text-gray-600 max-w-2xl mx-auto">
-              Senior leadership supporting executive decisions and managing operational excellence.
+              Guiding strategic direction and ensuring operational excellence at
+              the executive level.
             </p>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 max-w-6xl mx-auto">
-            {deputyBoard.map((member, index) => (
-              <MemberCard key={member.id} member={member} index={index} />
-            ))}
+          <div className="w-full flex justify-center">
+            <div className="w-full max-w-sm">
+              {advisorBoard.map((member, index) => (
+                <MemberCard
+                  key={member.id}
+                  member={member}
+                  index={index}
+                  size="large"
+                />
+              ))}
+            </div>
           </div>
         </section>
 
@@ -394,17 +426,25 @@ const OrganizationalStructure = () => {
           <div className="text-center mb-12">
             <div className="inline-flex items-center justify-center mb-6">
               <div className="h-px bg-red-300 flex-1 max-w-20 sm:max-w-32"></div>
-              <h2 className="px-6 text-2xl sm:text-3xl font-bold text-red-600">Under Secretary Generals</h2>
+              <h2 className="px-6 text-2xl sm:text-3xl font-bold text-red-600">
+                Under Secretary Generals
+              </h2>
               <div className="h-px bg-red-300 flex-1 max-w-20 sm:max-w-32"></div>
             </div>
             <p className="text-gray-600 max-w-2xl mx-auto">
-              Specialized leaders managing specific departments and ensuring seamless conference operations.
+              Specialized leaders managing specific departments and ensuring
+              seamless conference operations.
             </p>
           </div>
 
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
             {usgPositions.map((member, index) => (
-              <MemberCard key={member.id} member={member} index={index} size="small" />
+              <MemberCard
+                key={member.id}
+                member={member}
+                index={index}
+                size="large"
+              />
             ))}
           </div>
         </section>
@@ -414,23 +454,30 @@ const OrganizationalStructure = () => {
           <div className="text-center mb-12">
             <div className="inline-flex items-center justify-center mb-6">
               <div className="h-px bg-red-300 flex-1 max-w-20 sm:max-w-32"></div>
-              <h2 className="px-6 text-2xl sm:text-3xl font-bold text-red-600">Department Teams</h2>
+              <h2 className="px-6 text-2xl sm:text-3xl font-bold text-red-600">
+                Department Teams
+              </h2>
               <div className="h-px bg-red-300 flex-1 max-w-20 sm:max-w-32"></div>
             </div>
             <p className="text-gray-600 max-w-2xl mx-auto">
-              Dedicated teams working behind the scenes to bring the conference vision to life.
+              Dedicated teams working behind the scenes to bring the conference
+              vision to life.
             </p>
           </div>
 
           <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
             {departments.map((dept, index) => {
-              const IconComponent = dept.icon
-              const isExpanded = expandedDept === dept.id
+              const IconComponent = dept.icon;
+              const isExpanded = expandedDept === dept.id;
 
               return (
                 <div
                   key={dept.id}
-                  className={`bg-white rounded-2xl shadow-lg hover:shadow-xl transition-all duration-500 border border-red-100 overflow-hidden ${isVisible ? "translate-y-0 opacity-100" : "translate-y-10 opacity-0"}`}
+                  className={`bg-white rounded-2xl shadow-lg hover:shadow-xl transition-all duration-500 border border-red-100 overflow-hidden ${
+                    isVisible
+                      ? "translate-y-0 opacity-100"
+                      : "translate-y-10 opacity-0"
+                  }`}
                   style={{ transitionDelay: `${800 + index * 150}ms` }}
                 >
                   {/* Department Header */}
@@ -445,11 +492,15 @@ const OrganizationalStructure = () => {
                         </div>
                         <div>
                           <h3 className="text-xl font-bold">{dept.name}</h3>
-                          <p className="text-red-100 text-sm">{dept.team.length + 1} Members</p>
+                          <p className="text-red-100 text-sm">
+                            {dept.team.length + 1} Members
+                          </p>
                         </div>
                       </div>
                       <ChevronDown
-                        className={`w-6 h-6 transition-transform duration-300 ${isExpanded ? "rotate-180" : ""}`}
+                        className={`w-6 h-6 transition-transform duration-300 ${
+                          isExpanded ? "rotate-180" : ""
+                        }`}
                       />
                     </div>
                   </div>
@@ -468,9 +519,15 @@ const OrganizationalStructure = () => {
                         </div>
                       </div>
                       <div className="flex-1">
-                        <h4 className="text-lg font-bold text-gray-800">{dept.lead.name}</h4>
-                        <p className="text-red-600 font-semibold text-sm">{dept.lead.position}</p>
-                        <p className="text-gray-500 text-sm">{dept.lead.department}</p>
+                        <h4 className="text-lg font-bold text-gray-800">
+                          {dept.lead.name}
+                        </h4>
+                        <p className="text-red-600 font-semibold text-sm">
+                          {dept.lead.position}
+                        </p>
+                        <p className="text-gray-500 text-sm">
+                          {dept.lead.department}
+                        </p>
                       </div>
                       <div className="text-right">
                         <span className="inline-flex items-center px-2 py-1 rounded-full text-xs font-medium bg-red-100 text-red-800">
@@ -482,7 +539,9 @@ const OrganizationalStructure = () => {
 
                   {/* Team Members */}
                   <div
-                    className={`overflow-hidden transition-all duration-500 ${isExpanded ? "max-h-96 opacity-100" : "max-h-0 opacity-0"}`}
+                    className={`overflow-hidden transition-all duration-500 ${
+                      isExpanded ? "max-h-96 opacity-100" : "max-h-0 opacity-0"
+                    }`}
                   >
                     <div className="p-6">
                       <h5 className="text-sm font-semibold text-gray-600 uppercase tracking-wide mb-4 flex items-center">
@@ -494,7 +553,12 @@ const OrganizationalStructure = () => {
                           <div
                             key={memberIndex}
                             className="flex items-center space-x-4 p-4 rounded-xl hover:bg-red-50 transition-all duration-300 cursor-pointer border border-transparent hover:border-red-200"
-                            onClick={() => setSelectedMember({ ...member, department: dept.name })}
+                            onClick={() =>
+                              setSelectedMember({
+                                ...member,
+                                department: dept.name,
+                              })
+                            }
                           >
                             <img
                               src={member.image || "/placeholder.svg"}
@@ -502,9 +566,15 @@ const OrganizationalStructure = () => {
                               className="w-12 h-12 rounded-full object-cover ring-2 ring-red-100"
                             />
                             <div className="flex-1">
-                              <h6 className="font-semibold text-gray-800">{member.name}</h6>
-                              <p className="text-red-600 text-sm font-medium">{member.position}</p>
-                              <p className="text-gray-500 text-xs">{member.department}</p>
+                              <h6 className="font-semibold text-gray-800">
+                                {member.name}
+                              </h6>
+                              <p className="text-red-600 text-sm font-medium">
+                                {member.position}
+                              </p>
+                              <p className="text-gray-500 text-xs">
+                                {member.department}
+                              </p>
                             </div>
                             <div className="flex space-x-2">
                               <button className="p-2 bg-red-100 text-red-600 rounded-lg hover:bg-red-200 transition-colors">
@@ -517,7 +587,7 @@ const OrganizationalStructure = () => {
                     </div>
                   </div>
                 </div>
-              )
+              );
             })}
           </div>
         </section>
@@ -555,11 +625,21 @@ const OrganizationalStructure = () => {
             {/* Modal Content */}
             <div className="p-8">
               <div className="text-center mb-6">
-                <h2 className="text-2xl font-bold text-gray-800 mb-2">{selectedMember.name}</h2>
-                <p className="text-red-600 font-semibold text-lg mb-1">{selectedMember.position}</p>
-                <p className="text-gray-500 mb-4">{selectedMember.department}</p>
+                <h2 className="text-2xl font-bold text-gray-800 mb-2">
+                  {selectedMember.name}
+                </h2>
+                <p className="text-red-600 font-semibold text-lg mb-1">
+                  {selectedMember.position}
+                </p>
+                <p className="text-gray-500 mb-4">
+                  {selectedMember.department}
+                </p>
 
-                {selectedMember.bio && <p className="text-gray-600 leading-relaxed mb-6">{selectedMember.bio}</p>}
+                {selectedMember.bio && (
+                  <p className="text-gray-600 leading-relaxed mb-6">
+                    {selectedMember.bio}
+                  </p>
+                )}
 
                 {/* Contact Actions */}
                 <div className="flex justify-center space-x-4">
@@ -578,7 +658,7 @@ const OrganizationalStructure = () => {
         </div>
       )}
     </div>
-  )
-}
+  );
+};
 
-export default OrganizationalStructure
+export default OrganizationalStructure;

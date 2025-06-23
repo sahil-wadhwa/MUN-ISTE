@@ -94,14 +94,6 @@ const Registration = () => {
     setIsSubmitting(true);
 
     try {
-      // const response = await fetch(
-      //   "https://iste-mun-backend.vercel.app/api/register",
-      //   {
-      //     method: "POST",
-      //     headers: { "Content-Type": "application/json" },
-      //     body: JSON.stringify(formData),
-      //   }
-      // );
       const response = await fetch(
         "https://iste-mun-backend.vercel.app/api/register",
         {
@@ -131,52 +123,6 @@ const Registration = () => {
       setIsSubmitting(false);
     }
   };
-
-  // if (isSubmitted) {
-  //   return (
-  //     <section id="registration" className="py-20 bg-gray-50">
-  //       <div className="container mx-auto px-4">
-  //         <div className="max-w-2xl mx-auto text-center">
-  //           <div className="w-20 h-20 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-6">
-  //             <svg
-  //               xmlns="http://www.w3.org/2000/svg"
-  //               className="h-10 w-10 text-green-600"
-  //               fill="none"
-  //               viewBox="0 0 24 24"
-  //               stroke="currentColor"
-  //             >
-  //               <path
-  //                 strokeLinecap="round"
-  //                 strokeLinejoin="round"
-  //                 strokeWidth={2}
-  //                 d="M5 13l4 4L19 7"
-  //               />
-  //             </svg>
-  //           </div>
-  //           <h2 className="text-3xl font-bold text-red-600 mb-4">
-  //             Registration Successful!
-  //           </h2>
-  //           <p className="text-white mb-8">
-  //             Thank you for registering for the JGU MUN Conference 2025. We have
-  //             received your application and will be in touch shortly with
-  //             further details.
-  //           </p>
-  //           <p className="text-white mb-8">
-  //             Please check your email for a confirmation message. If you don't
-  //             receive it within 24 hours, please check your spam folder or
-  //             contact us.
-  //           </p>
-  //           <button
-  //             onClick={() => setIsSubmitted(false)}
-  //             className="px-6 py-3 bg-red-600 hover:bg-red-700 text-white font-medium rounded-md transition-colors duration-300"
-  //           >
-  //             Register Another Delegate
-  //           </button>
-  //         </div>
-  //       </div>
-  //     </section>
-  //   );
-  // }
   if (isSubmitted) {
     return (
       <section id="registration" className="py-20 bg-gray-50">
@@ -232,13 +178,62 @@ const Registration = () => {
           </p>
         </div>
 
+        {/* Ticker Bar positioned correctly below the paragraph */}
+        <div className="w-full mx-auto bg-white py-2 mb-8 rounded-lg shadow-md">
+          {" "}
+          {/* Reduced width and removed borders */}
+          <div className="overflow-hidden w-full whitespace-nowrap relative h-8 sm:h-10">
+            <div className="absolute animate-marquee flex text-black opacity-[0.6] text-sm sm:text-base md:text-lg font-medium gap-10 px-4">
+              {/* Updated Ticker Bar Content */}
+              <span>
+                📣 Registrations opening soon. Stay tuned for updates on
+                committees, agendas, and the official portfolio matrix.
+              </span>
+              <span>
+                📞 Need Help? Tanisha: +91 98785 33880 | Krishnam: +91 76961
+                27374
+              </span>
+              <span>
+                ✉️ Our team will reach out to you for further process and
+                registration.
+              </span>
+              <span>⚠️ Please do not pay to any unofficial sources.</span>
+              {/* Duplicate for seamless loop */}
+              <span>
+                📣 Registrations opening soon. Stay tuned for updates on
+                committees, agendas, and the official portfolio matrix.
+              </span>
+              <span>
+                📞 Need Help? Tanisha: +91 98785 33880 | Krishnam: +91 76961
+                27374
+              </span>
+              <span>
+                ✉️ Our team will reach out to you for further process and
+                registration.
+              </span>
+              <span>⚠️ Please do not pay to any unofficial sources.</span>
+            </div>
+          </div>
+          {/* Custom Marquee Animation */}
+          <style>
+            {`
+      @keyframes marquee {
+        0% { transform: translateX(0%); }
+        100% { transform: translateX(-50%); }
+      }
+
+      .animate-marquee {
+        animation: marquee 25s linear infinite;
+        min-width: 200%;
+      }
+    `}
+          </style>
+        </div>
+
         <div className="max-w-4xl mx-auto bg-black rounded-lg shadow-md overflow-hidden">
           <div className="flex flex-wrap">
             <div className="w-full lg:w-1/3 bg-gradient-to-br from-red-600 to-red-800 p-8 text-white hidden lg:block shadow-xl rounded-lg font-sans tracking-wide">
               <h3 className="text-3xl font-bold mb-6 flex items-center gap-2">
-                {/* <svg className="w-6 h-6 text-white/90" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24">
-      <path d="M12 4v16m8-8H4" />
-    </svg> */}
                 Registration Details
               </h3>
 
@@ -294,61 +289,6 @@ const Registration = () => {
                     Note: Each delegate will receive an ID card, plea card,
                     folder, notepad, and pen. Accommodation will also be
                     provided for a comfortable experience.
-                  </p>
-                </div>
-              </div>
-
-              {/* Announcement */}
-              <div className="mb-10">
-                <h4 className="text-xl font-semibold mb-3 flex items-center gap-2">
-                  <svg
-                    className="w-5 h-5 text-white/70"
-                    fill="none"
-                    stroke="currentColor"
-                    strokeWidth="2"
-                    viewBox="0 0 24 24"
-                  >
-                    <path d="M12 8v4l3 3M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
-                  </svg>
-                  Announcement
-                </h4>
-                <p className="text-white/80 leading-relaxed">
-                  Registrations opening soon. Stay tuned for updates on{" "}
-                  <span className="font-semibold">committees</span>,{" "}
-                  <span className="font-semibold">agendas</span>, and the
-                  official portfolio matrix.
-                </p>
-              </div>
-
-              {/* Contact Info */}
-              <div>
-                <h4 className="text-xl font-semibold mb-3 flex items-center gap-2">
-                  <svg
-                    className="w-5 h-5 text-white/70"
-                    fill="none"
-                    stroke="currentColor"
-                    strokeWidth="2"
-                    viewBox="0 0 24 24"
-                  >
-                    <path d="M21 10c0 6-9 12-9 12S3 16 3 10a9 9 0 1118 0z" />
-                  </svg>
-                  Need Help?
-                </h4>
-                <div className="text-white/80 space-y-1">
-                  <p>
-                    Tanisha:{" "}
-                    <span className="font-medium">+91 98785 33880</span>
-                  </p>
-                  <p>
-                    Krishnam:{" "}
-                    <span className="font-medium">+91 76961 27374</span>
-                  </p>
-                  <p className="pt-2 text-white/90 text-sm">
-                    Our team will reach out to you for further process and
-                    registration.
-                    <br />
-                    Please do <strong className="text-red-200">not</strong> pay
-                    to any unofficial sources.
                   </p>
                 </div>
               </div>

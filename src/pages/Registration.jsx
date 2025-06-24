@@ -37,7 +37,7 @@ const Registration = () => {
   const [errors, setErrors] = useState({});
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [isSubmitted, setIsSubmitted] = useState(false);
-  const [showDetailsMobile, setShowDetailsMobile] = useState(false); // New state for mobile details visibility
+  // Removed showDetailsMobile state as it will be visible by default
 
   const handleChange = (e) => {
     const { name, type, value, checked } = e.target;
@@ -229,86 +229,63 @@ const Registration = () => {
         </div>
 
         <div className="max-w-4xl mx-auto bg-black rounded-lg shadow-md overflow-hidden">
-          {/* Registration Details Section - Now visible on mobile and collapsible */}
-          <div className="lg:hidden p-6 bg-gradient-to-br from-red-600 to-red-800 text-white">
-            <button
-              onClick={() => setShowDetailsMobile(!showDetailsMobile)}
-              className="w-full text-left flex justify-between items-center text-xl font-bold mb-4"
-            >
-              Registration Details
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                className={`h-6 w-6 transform transition-transform ${
-                  showDetailsMobile ? "rotate-180" : ""
-                }`}
-                fill="none"
-                viewBox="0 0 24 24"
-                stroke="currentColor"
-              >
-                <path
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  strokeWidth={2}
-                  d="M19 9l-7 7-7-7"
-                />
-              </svg>
-            </button>
-            {showDetailsMobile && (
-              <div className="pt-4 border-t border-white/20">
-                <h4 className="text-lg font-semibold mb-3 flex items-center gap-2">
-                  <svg
-                    className="w-5 h-5 text-white/70"
-                    fill="none"
-                    stroke="currentColor"
-                    strokeWidth="2"
-                    viewBox="0 0 24 24"
-                  >
-                    <path d="M17 9V7a5 5 0 00-10 0v2M5 12h14" />
-                  </svg>
-                  Delegate Fee Structure
-                </h4>
+          {/* Registration Details Section - Always visible on mobile */}
+          <div className="p-6 bg-gradient-to-br from-red-600 to-red-800 text-white lg:hidden">
+            <h3 className="text-xl font-bold mb-4">Registration Details</h3>
+            <div className="pt-4 border-t border-white/20">
+              <h4 className="text-lg font-semibold mb-3 flex items-center gap-2">
+                <svg
+                  className="w-5 h-5 text-white/70"
+                  fill="none"
+                  stroke="currentColor"
+                  strokeWidth="2"
+                  viewBox="0 0 24 24"
+                >
+                  <path d="M17 9V7a5 5 0 00-10 0v2M5 12h14" />
+                </svg>
+                Delegate Fee Structure
+              </h4>
 
-                <div className="pl-2 border-l-4 border-white/30 ml-1">
-                  <p className="text-red-100 font-semibold underline mb-2">
-                    FOR UN COMMITTEES
-                  </p>
-                  <p className="text-white/80 mb-1">
-                    External Participants (With Accommodation):{" "}
-                    <span className="font-medium">₹4000</span>
-                  </p>
-                  <p className="text-white/80 mb-1">
-                    External Participants (Without Accommodation):{" "}
-                    <span className="font-medium">₹3000</span>
-                  </p>
-                  <p className="text-white/80 mb-4">
-                    CU Students (Without Accommodation):{" "}
-                    <span className="font-medium">₹2800</span>
-                  </p>
+              <div className="pl-2 border-l-4 border-white/30 ml-1">
+                <p className="text-red-100 font-semibold underline mb-2">
+                  FOR UN COMMITTEES
+                </p>
+                <p className="text-white/80 mb-1">
+                  External Participants (With Accommodation):{" "}
+                  <span className="font-medium">₹4000</span>
+                </p>
+                <p className="text-white/80 mb-1">
+                  External Participants (Without Accommodation):{" "}
+                  <span className="font-medium">₹3000</span>
+                </p>
+                <p className="text-white/80 mb-4">
+                  CU Students (Without Accommodation):{" "}
+                  <span className="font-medium">₹2800</span>
+                </p>
 
-                  <p className="text-red-100 font-semibold underline mb-2">
-                    FOR INTERNATIONAL PRESS
-                  </p>
-                  <p className="text-white/80 mb-1">
-                    External Participants (With Accommodation):{" "}
-                    <span className="font-medium">₹3500</span>
-                  </p>
-                  <p className="text-white/80 mb-1">
-                    External Participants (Without Accommodation):{" "}
-                    <span className="font-medium">₹2500</span>
-                  </p>
-                  <p className="text-white/80 mb-4">
-                    CU Students (Without Accommodation):{" "}
-                    <span className="font-medium">₹2300</span>
-                  </p>
+                <p className="text-red-100 font-semibold underline mb-2">
+                  FOR INTERNATIONAL PRESS
+                </p>
+                <p className="text-white/80 mb-1">
+                  External Participants (With Accommodation):{" "}
+                  <span className="font-medium">₹3500</span>
+                </p>
+                <p className="text-white/80 mb-1">
+                  External Participants (Without Accommodation):{" "}
+                  <span className="font-medium">₹2500</span>
+                </p>
+                <p className="text-white/80 mb-4">
+                  CU Students (Without Accommodation):{" "}
+                  <span className="font-medium">₹2300</span>
+                </p>
 
-                  <p className="text-white/70 text-sm italic">
-                    Note: Each delegate will receive an ID card, plea card,
-                    folder, notepad, and pen. Accommodation will also be
-                    provided for a comfortable experience.
-                  </p>
-                </div>
+                <p className="text-white/70 text-sm italic">
+                  Note: Each delegate will receive an ID card, plea card,
+                  folder, notepad, and pen. Accommodation will also be provided
+                  for a comfortable experience.
+                </p>
               </div>
-            )}
+            </div>
           </div>
 
           <div className="flex flex-wrap">

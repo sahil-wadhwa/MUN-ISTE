@@ -13,7 +13,7 @@ const ParallaxGallery = () => {
       path: "/committees",
     },
     {
-      image: "/assets/mun3.jpg",
+      image: "/assets/mun33.jpg",
       title: "See the Schedule",
       desc: "See the 3 Day Itinerary.",
       buttonText: "Go to Itinerary",

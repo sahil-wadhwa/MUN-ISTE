@@ -252,15 +252,15 @@ const Registration = () => {
                 </p>
                 <p className="text-white/80 mb-1">
                   External Participants (With Accommodation):{" "}
-                  <span className="font-medium">₹4000</span>
+                  <span className="font-medium">₹3500</span>
                 </p>
                 <p className="text-white/80 mb-1">
                   External Participants (Without Accommodation):{" "}
-                  <span className="font-medium">₹3000</span>
+                  <span className="font-medium">₹2800</span>
                 </p>
                 <p className="text-white/80 mb-4">
                   CU Students (Without Accommodation):{" "}
-                  <span className="font-medium">₹2800</span>
+                  <span className="font-medium">₹2500</span>
                 </p>
 
                 <p className="text-red-100 font-semibold underline mb-2">
@@ -268,15 +268,15 @@ const Registration = () => {
                 </p>
                 <p className="text-white/80 mb-1">
                   External Participants (With Accommodation):{" "}
-                  <span className="font-medium">₹3500</span>
+                  <span className="font-medium">₹3350</span>
                 </p>
                 <p className="text-white/80 mb-1">
                   External Participants (Without Accommodation):{" "}
-                  <span className="font-medium">₹2500</span>
+                  <span className="font-medium">₹2350</span>
                 </p>
                 <p className="text-white/80 mb-4">
                   CU Students (Without Accommodation):{" "}
-                  <span className="font-medium">₹2300</span>
+                  <span className="font-medium">₹2150</span>
                 </p>
 
                 <p className="text-white/70 text-sm italic">
@@ -316,32 +316,32 @@ const Registration = () => {
                   </p>
                   <p className="text-white/80 mb-1">
                     External Participants (With Accommodation):{" "}
-                    <span className="font-medium">₹4000</span>
+                    <span className="font-medium">₹3500</span>
                   </p>
                   <p className="text-white/80 mb-1">
                     External Participants (Without Accommodation):{" "}
-                    <span className="font-medium">₹3000</span>
+                    <span className="font-medium">₹2800</span>
                   </p>
                   <p className="text-white/80 mb-4">
                     CU Students (Without Accommodation):{" "}
-                    <span className="font-medium">₹2800</span>
+                    <span className="font-medium">₹2500</span>
                   </p>
 
                   <p className="text-red-100 font-semibold underline mb-2">
                     FOR INTERNATIONAL PRESS
                   </p>
                   <p className="text-white/80 mb-1">
-                    External Participants (With Accommodation):{" "}
-                    <span className="font-medium">₹3500</span>
-                  </p>
-                  <p className="text-white/80 mb-1">
-                    External Participants (Without Accommodation):{" "}
-                    <span className="font-medium">₹2500</span>
-                  </p>
-                  <p className="text-white/80 mb-4">
-                    CU Students (Without Accommodation):{" "}
-                    <span className="font-medium">₹2300</span>
-                  </p>
+                  External Participants (With Accommodation):{" "}
+                  <span className="font-medium">₹3350</span>
+                </p>
+                <p className="text-white/80 mb-1">
+                  External Participants (Without Accommodation):{" "}
+                  <span className="font-medium">₹2350</span>
+                </p>
+                <p className="text-white/80 mb-4">
+                  CU Students (Without Accommodation):{" "}
+                  <span className="font-medium">₹2150</span>
+                </p>
 
                   <p className="text-white/70 text-sm italic">
                     Note: Each delegate will receive an ID card, plea card,

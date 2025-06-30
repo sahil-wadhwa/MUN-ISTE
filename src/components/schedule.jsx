@@ -40,7 +40,6 @@ const scheduleData = [
   }
 ];
 
-// Updated to accept 'selected' prop
 const IconCalendar = ({ selected }) => (
   <svg className={`w-5 h-5 ${selected ? "text-white" : "text-red-600"}`} fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24">
     <path strokeLinecap="round" strokeLinejoin="round" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" />
@@ -88,7 +87,6 @@ const Schedule = () => {
           </p>
         </div>
 
-        {/* Day Tabs - Adjusted for better mobile wrapping */}
         <div className="flex justify-center flex-wrap gap-2 sm:gap-3 mb-10 sm:mb-14 px-2">
           {scheduleData.map((day, idx) => (
             <button
@@ -106,7 +104,6 @@ const Schedule = () => {
           ))}
         </div>
 
-        {/* Schedule Events with Slide Animation */}
         <div className="max-w-4xl mx-auto relative px-2">
           <AnimatePresence custom={direction} mode="wait">
             <motion.div
@@ -131,7 +128,7 @@ const Schedule = () => {
                   transition={{ delay: idx * 0.1 }}
                   className="mb-8 sm:mb-12 relative group"
                 >
-                  <span className="absolute -left-[19px] top-2 w-4 h-4 rounded-full bg-white border-4 border-600 group-hover:scale-110 transition-transform duration-300 shadow-md"></span>
+                  <span className="absolute -left-[19px] top-2 w-4 h-4 rounded-full bg-white border-4 border-red-600 group-hover:scale-110 transition-transform duration-300 shadow-md"></span>
                   <div className="bg-white backdrop-blur-md border border-red-100 rounded-xl p-4 sm:p-5 shadow-sm hover:shadow-lg transition-shadow duration-300">
                     <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center mb-2">
                       <h4 className="text-base sm:text-lg font-semibold text-red-700 tracking-tight mb-1 sm:mb-0">

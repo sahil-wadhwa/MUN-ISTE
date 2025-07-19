@@ -164,7 +164,7 @@ const Footer = () => {
                     size={18}
                     className="mr-2 sm:mr-3 text-red-300 flex-shrink-0"
                   />
-                  <span>+91 98765 43210</span>
+                  <span>+91 987853 3880</span>
                 </li>
                 <li className="flex items-center">
                   <Mail

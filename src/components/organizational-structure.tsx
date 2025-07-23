@@ -191,7 +191,7 @@ const departments = [
       },
       {
         name: "Piyush",
-        position: "Technical Support",
+        position: "Web Developer",
         department: "Tech Team",
         image: "/assets/Piyush Aggarwal_.jpg",
       },

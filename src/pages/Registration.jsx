@@ -415,7 +415,7 @@ const Registration = () => {
                       htmlFor="university"
                       className="block text-sm font-medium text-gray-300 mb-1"
                     >
-                      University / Institution*
+                      University / School*
                     </label>
                     <input
                       type="text"

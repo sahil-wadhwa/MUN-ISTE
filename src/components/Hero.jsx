@@ -92,7 +92,7 @@ const Hero = () => {
           Edition 4.0
         </h3>
         <p className="mt-8 text-lg sm:text-xl md:text-2xl font-medium">
-          10th - 12th SEPTEMBER 2025
+          13th - 13th OCTOBER 2025
         </p>
       </div>
 

@@ -488,7 +488,7 @@ const Registration = () => {
                     <option value="Individual Delegate">
                       Individual Delegate
                     </option>
-                    <option value="Observer">Observer</option>
+{/*                     <option value="Observer">Observer</option> */}
                     <option value="Delegation">Delegation (Group)</option>
                   </select>
                   {errors.delegateType && (

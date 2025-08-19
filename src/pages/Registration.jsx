@@ -145,8 +145,7 @@ const Registration = () => {
               Registration Successful!
             </h2>
             <p className="text-black mb-8 text-sm sm:text-base">
-              Thank you for registering for the CUMUN Conference 2025 (September
-              1st Week), a part of Technisia ISTE. We'll connect with you soon
+              Thank you for registering for the CUMUN Conference 2025 (October 13th - 15th 2025), a part of Technicia'25 - ISTE Zonal Convention cum Technical Fest. We'll connect with you soon
               for further process.
             </p>
             <button

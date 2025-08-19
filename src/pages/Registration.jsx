@@ -91,7 +91,7 @@ const Registration = () => {
 
     try {
       const response = await fetch(
-        "https://iste-mun-backend.onrender.com",
+        "https://iste-mun-backend.onrender.com/api/registration",
         {
           method: "POST",
           headers: {

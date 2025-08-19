@@ -437,7 +437,7 @@ const Registration = () => {
                       htmlFor="phoneNumber"
                       className="block text-sm font-medium text-gray-300 mb-1"
                     >
-                      Phone Number*
+                      Phone Number* (Without the country code)
                     </label>
                     <input
                       type="tel"

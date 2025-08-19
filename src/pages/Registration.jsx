@@ -91,7 +91,7 @@ const Registration = () => {
 
     try {
       const response = await fetch(
-        "https://iste-mun-backend.vercel.app/api/register",
+        "https://iste-mun-backend.onrender.com",
         {
           method: "POST",
           headers: {

@@ -169,7 +169,7 @@ const Registration = () => {
           </h2>
           <div className="w-16 sm:w-20 h-1 bg-yellow-600 mx-auto mb-4 sm:mb-6"></div>
           <p className="text-black max-w-3xl mx-auto text-sm sm:text-base">
-            Join us for the CU-MUN Conference 2025. Fill out the form below to
+            Join us for the CUMUN Conference 2025. Fill out the form below to
             register as a delegate. Early registration is recommended as
             committee spots fill up quickly.
           </p>

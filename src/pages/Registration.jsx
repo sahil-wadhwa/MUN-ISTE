@@ -90,7 +90,7 @@ const Registration = () => {
     setIsSubmitting(true);
 
     try {
-      const response = aawait fetch("https://iste-mun-backend.onrender.com/api/registration", {
+      const response = await fetch("https://iste-mun-backend.onrender.com/api/registration", {
   method: "POST",
   headers: {
     "Content-Type": "application/json",

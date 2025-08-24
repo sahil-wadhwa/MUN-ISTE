@@ -332,11 +332,11 @@ const Registration = () => {
                 </p>
                 <p className="text-white/80 mb-1">
                   External Participants (Without Accommodation):{" "}
-                  <span className="font-medium">₹2350</span>
+                  <span className="font-medium">₹2650</span>
                 </p>
                 <p className="text-white/80 mb-4">
                   CU Students (Without Accommodation):{" "}
-                  <span className="font-medium">₹2150</span>
+                  <span className="font-medium">₹2350</span>
                 </p>
 
                   <p className="text-white/70 text-sm italic">

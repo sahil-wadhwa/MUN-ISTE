@@ -7,7 +7,7 @@ const facultyLeadership = [
   {
     id: 1,
     name: "S. Satnam Singh Sandhu",
-    position: "Chancellor",
+    position: "Hon'ble Chancellor",
     department: "Office of the Chancellor",
     bio: "Head of the university, providing honorary and ceremonial leadership to guide institutional excellence.",
     image: "/professional-chancellor-portrait.jpg",
@@ -16,7 +16,7 @@ const facultyLeadership = [
   {
     id: 2,
     name: "Prof. (Dr.) Manpreet Singh Manna",
-    position: "VC",
+    position: "Hon'ble Vice Chancellor",
     department: "Office of the Vice Chancellor",
     bio: "Vice Chancellor responsible for overall university administration and academic oversight.",
     image: "/professional-vice-chancellor-portrait.jpg",
@@ -25,7 +25,7 @@ const facultyLeadership = [
   {
     id: 3,
     name: "Prof. (Dr.) Vinay Kumar Mittal",
-    position: "PVC (Academic Affairs)",
+    position: "Pro-Vice Chancellor - Academic Affairs",
     department: "Academic Affairs Office",
     bio: "Pro Vice Chancellor overseeing academic operations and educational excellence across all departments.",
     image: "/professional-academic-administrator-portrait.jpg",
@@ -37,51 +37,43 @@ const engineeringLeadership = [
   {
     id: 4,
     name: "Prof. (Dr.) Sachin Ahuja",
-    position: "ED Engineering",
+    position: "Executive Director - Engineering",
     department: "Faculty of Engineering",
     bio: "Executive Director of Engineering, leading strategic initiatives and coordinating engineering programs.",
     image: "/professional-engineering-dean-portrait.jpg",
     icon: Building,
   },
-  {
-    id: 5,
-    name: "Prof. (Dr.) Satbir Singh Sehgal",
-    position: "AD Eng",
-    department: "Faculty of Engineering",
-    bio: "Associate Dean of Engineering, providing strategic guidance and academic leadership.",
-    image: "/professional-associate-dean-portrait.jpg",
-    icon: Award,
-  },
 ]
 
 const departmentalFaculty = [
   {
-    id: 6,
+    id: 5,
     name: "Dr. Sandeep Singh Kang",
-    position: "Deputy HOD",
+    position: "Associate Director - Department of Computer Science and Engineering",
     department: "Computer Science & Engineering",
     bio: "Deputy Head of Department managing departmental operations and ensuring quality education delivery.",
     image: "/professional-deputy-hod-portrait.jpg",
     icon: Users,
   },
   {
-    id: 7,
-    name: "Neha Dutta",
-    position: "Faculty 1",
-    department: "Faculty of Engineering",
-    bio: "Faculty Member providing quality education and academic guidance to students.",
-    image: "/professional-faculty-advisor-portrait.jpg",
-    icon: BookOpen,
-  },
-  {
-    id: 8,
-    name: "Neetu Maam",
-    position: "Faculty 2",
+    id: 6,
+    name: "Dr. Neetu",
+    position: "Faculty Advisor",
     department: "Faculty of Engineering",
     bio: "Faculty Member supporting student development through teaching and mentorship.",
     image: "/professional-faculty-advisor-portrait-female.jpg",
     icon: BookOpen,
   },
+  {
+    id: 7,
+    name: "Dr. Neha Dutta",
+    position: "Faculty Co-Advisor",
+    department: "Faculty of Engineering",
+    bio: "Faculty Member providing quality education and academic guidance to students.",
+    image: "/professional-faculty-advisor-portrait.jpg",
+    icon: BookOpen,
+  },
+  
 ]
 
 const FacultyStructure = () => {

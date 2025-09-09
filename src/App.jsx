@@ -13,6 +13,8 @@ import Schedule from "./components/schedule";
 import ScrollToTop from "./components/ScrollToTop";
 import OrganizationalStructure from "./components/organizational-structure";
 import AwardsCertifications from "./pages/awards-certifications";
+import FacultyStructure from "./components/faculty";
+
 
 function App() {
   return (
@@ -23,7 +25,8 @@ function App() {
         <Route path="/" element={<Home />} />
         <Route path="/committees" element={<Committees />} />
         <Route path="/registration" element={<Registration />} />
-        <Route path="/faculty" element={<OrganizationalStructure/>} />
+        <Route path="/team" element={<OrganizationalStructure/>} />
+        <Route path="/faculty" element={<FacultyStructure/>} />
         <Route path="/schedule" element={<Schedule/>} />
         <Route path="/awards" element={<AwardsCertifications/>} />
       </Routes>

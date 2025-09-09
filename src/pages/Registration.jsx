@@ -107,7 +107,7 @@ const Registration = () => {
         setErrors({});
       } else {
         console.error("Server responded with error:", result);
-        alert(result.error || "You're already registered. Please do check with +91 98785 33880!");
+        alert(result.error || "An Error Occurred. Please do check with +91 98785 33880!");
       }
     } catch (error) {
       console.error("Network or server error during submission:", error);

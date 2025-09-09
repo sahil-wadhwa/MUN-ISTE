@@ -24,7 +24,7 @@ const facultyLeadership = [
   },
   {
     id: 3,
-    name: "Prof. (Dr.) Vinay Kumar Mittal",
+    name: "Prof. (Dr.) V. R. Raghuveer",
     position: "Pro-Vice Chancellor - Academic Affairs",
     department: "Academic Affairs Office",
     bio: "Pro Vice Chancellor overseeing academic operations and educational excellence across all departments.",

@@ -3,50 +3,66 @@ import React, { useState } from 'react';
 const committees = [
   {
     id: 1,
-    name: "United Nations General Assembly (UNGA)",
-    description: "The main deliberative, policymaking, and representative organ of the UN. In this committee, delegates will explore diplomatic strategies to prevent nuclear conflict, with a focus on reducing tensions in South Asia.",
-    agenda: "Preventing Nuclear Conflict: Diplomatic Pathways to Reduce Tensions in South Asia",
-    image: "https://upload.wikimedia.org/wikipedia/commons/0/05/UN_General_Assembly_hall.jpg",
+    name: "United Nations Security Council (UNSC)",
+    description: "The UNSC holds the primary responsibility for maintaining international peace and security. Delegates will deliberate on disputes in the South China Sea, covering territorial claims, freedom of navigation, and the risks of militarization.",
+    agenda: "Ensuring International Peace and Security in the South China Sea – addressing territorial disputes, navigation freedom, militarization, fostering cooperation, upholding international law, and promoting regional stability.",
+    image: "https://upload.wikimedia.org/wikipedia/commons/thumb/8/82/Barack_Obama_chairs_a_United_Nations_Security_Council_meeting.jpg/1200px-Barack_Obama_chairs_a_United_Nations_Security_Council_meeting.jpg",
     brochure: ""
   },
   {
     id: 2,
-    name: "All India Political Parties Meet (AIPPM)",
-    description: "A high-level simulation of discussions among Indian political parties. Delegates will debate India’s diplomatic, security, and economic strategies in combating terrorism.",
-    agenda: "Comprehensive Evaluation of India’s Strategic Responses to Terrorism: Diplomatic, Security, and Economic Dimensions",
-    image: "https://upload.wikimedia.org/wikipedia/commons/thumb/d/db/View_of_Lok_Sabha_chamber_in_the_New_Parliament_building%2C_New_Delhi.jpg/960px-View_of_Lok_Sabha_chamber_in_the_New_Parliament_building%2C_New_Delhi.jpg",
+    name: "United Nations General Assembly (UNGA)",
+    description: "The UNGA is the main deliberative, policymaking, and representative body of the UN. Delegates will explore democratic backsliding in key Asian democracies, analyzing its impact on governance, civil liberties, and stability.",
+    agenda: "Democratic Backsliding in Nepal, Indonesia, and Bangladesh – impacts on governance, civil liberties, protests, and state responses from negotiation to repression.",
+    image: "https://upload.wikimedia.org/wikipedia/commons/0/05/UN_General_Assembly_hall.jpg",
     brochure: ""
   },
   {
     id: 3,
-    name: "International Press (IP)",
-    description: "The media body of the MUN responsible for covering debates, interviewing delegates, and publishing bulletins. Roles include reporters, photographers, caricaturists, and editors.",
-    agenda: "Covering and Documenting Committee Proceedings, Interviews, and Daily Highlights",
-    image: "https://cdn.pixabay.com/photo/2021/12/01/22/11/cameras-6839248_1280.jpg",
+    name: "All India Political Parties Meet (AIPPM)",
+    description: "A high-level simulation of discussions among Indian political parties. Delegates will deliberate on religious endowments, political implications, and governance challenges related to the Waqf (Amendment) Act, 2025.",
+    agenda: "Religious Endowments and State Regulation: The Controversy of the Waqf (Amendment) Act, 2025",
+    image: "https://upload.wikimedia.org/wikipedia/commons/thumb/d/db/View_of_Lok_Sabha_chamber_in_the_New_Parliament_building%2C_New_Delhi.jpg/960px-View_of_Lok_Sabha_chamber_in_the_New_Parliament_building%2C_New_Delhi.jpg",
     brochure: ""
   },
   {
     id: 4,
-    name: "United Nations Commission on the Status of Women (UNCSW)",
-    description: "A UN body focused on gender equality and the empowerment of women. Delegates will address the issue of human trafficking, with a special focus on the Middle East.",
-    agenda: "Addressing Women’s Vulnerability to Trafficking: Case Study of Middle East and Regional Challenges",
-    image: "https://s3.youthkiawaaz.com/wp-content/uploads/2021/10/22110340/10701991186_43bd21edd9_c.jpg",
+    name: "United Nations Human Rights Council (UNHRC)",
+    description: "The UNHRC addresses global human rights challenges. Delegates will debate the balance between national security and freedom of expression in the age of internet blackouts and censorship.",
+    agenda: "Internet Blackouts & Censorship: National Security vs. Freedom of Expression",
+    image: "https://www.genevaenvironmentnetwork.org/wp-content/uploads/2022/08/Human-Rights-Council-UN-Room-aspect-ratio-2000-1200.jpg",
     brochure: ""
   },
   {
     id: 5,
-    name: "United Nations Development Programme (UNDP)",
-    description: "UNDP works globally to eradicate poverty and reduce inequalities. This session will focus on reviewing progress and strategies related to selected Sustainable Development Goals.",
-    agenda: "Overview of UNDP’s Role in the 2030 Agenda for Sustainable Development: Progress and Strategies with Special Focus on SDGs 1, 2, 4, 7, 8, and 13",
-    image: "https://www.undp.org/sites/g/files/zskgke326/files/2024-08/lavrenko.com_.ua_026.jpg",
+    name: "United Nations Educational, Scientific and Cultural Organization (UNESCO)",
+    description: "UNESCO promotes cultural heritage, education, and knowledge sharing. This beginner-friendly committee will focus on the role of AI in shaping cultural authenticity in art, literature, and multimedia.",
+    agenda: "Protecting Cultural Authenticity and Implicit Meaning in Art, Literature, and Multimedia in the Era of AI-generated Content",
+    image: "https://dam.media.un.org/Assets/V2/ChFVTjdTNTAwMDAwMDAwMDAwMxIPVFIxX1dBVEVSTUFSS0VEGi1cVFIxX1dBVEVSTUFSS0VEXGFkXDkwXGE0XGI3XDFkXFVONzMyMDYxNS5qcGciBAgBEA9AAWIJVU43MzIwNjE1~/2AM9LO5YM1DH/QD4FR7VKvFF6wIoV/UN7320615.jpg",
     brochure: ""
   },
   {
     id: 6,
-    name: "United Nations Environment Programme (UNEP)",
-    description: "UNEP addresses global environmental challenges. In this session, delegates will assess the implications of artificial climate modification technologies, covering environmental, ethical, and governance aspects.",
-    agenda: "Artificial Climate Modification: Assessing the Environmental, Ethical, and Governance Implications of Geoengineering Technologies",
-    image: "https://www.un.org/sites/un2.un.org/files/styles/large-article-image-style-16-9/public/unep_pollution_resolution.jpg",
+    name: "United Nations Commission on the Status of Women (UNCSW)",
+    description: "The UNCSW is a global body dedicated to gender equality and women’s rights. Delegates will focus on gendered violence in conflict zones and accountability mechanisms for perpetrators.",
+    agenda: "Gendered Violence while in Conflict: Holding Attendees to Account and Responsibility",
+    image: "https://s3.youthkiawaaz.com/wp-content/uploads/2021/10/22110340/10701991186_43bd21edd9_c.jpg",
+    brochure: ""
+  },
+  {
+    id: 7,
+    name: "World Health Organization (WHO)",
+    description: "The WHO leads international public health efforts. This committee will deliberate on the youth mental health crisis and its implications for societies worldwide.",
+    agenda: "Youth Mental Health Crisis and What it Means to the Global Village",
+    image: "https://unf.imgix.net/2023/02/cropped-WHO-Board-Room.png?auto=compress%2Cformat&ixlib=php-3.3.1",
+    brochure: ""
+  },
+  {
+    id: 8,
+    name: "International Press (IP)",
+    description: "The media body of the MUN responsible for covering debates, interviewing delegates, and publishing bulletins. Roles include reporters, photographers, caricaturists, and editors.",
+    agenda: "Covering and Documenting Committee Proceedings, Interviews, and Daily Highlights",
+    image: "https://cdn.pixabay.com/photo/2021/12/01/22/11/cameras-6839248_1280.jpg",
     brochure: ""
   }
 ];
@@ -116,7 +132,6 @@ const CommitteeCard = ({ committee, onClick }) => (
     </div>
   </div>
 );
-
 
 const CommitteeModal = ({ committee, onClose }) => (
   <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50 p-4">

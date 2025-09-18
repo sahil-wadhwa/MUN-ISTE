@@ -24,13 +24,18 @@ const initialFormData = {
 };
 
 const committees = [
+  "United Nations Security Council (UNSC)",
   "United Nations General Assembly (UNGA)",
   "All India Political Parties Meet (AIPPM)",
-  "International Press (IP)",
+  "United Nations Human Rights Council (UNHRC)",
+  "United Nations Educational, Scientific and Cultural Organization (UNESCO)",
   "United Nations Commission on the Status of Women (UNCSW)",
+  "World Health Organization (WHO)",
+  "International Press (IP)",
   "United Nations Development Programme (UNDP)",
-  "United Nations Environment Programme (UNEP)",
+  "United Nations Environment Programme (UNEP)"
 ];
+
 
 const Registration = () => {
   const [formData, setFormData] = useState(initialFormData);

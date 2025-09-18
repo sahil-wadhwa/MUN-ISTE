@@ -31,9 +31,7 @@ const committees = [
   "United Nations Educational, Scientific and Cultural Organization (UNESCO)",
   "United Nations Commission on the Status of Women (UNCSW)",
   "World Health Organization (WHO)",
-  "International Press (IP)",
-  "United Nations Development Programme (UNDP)",
-  "United Nations Environment Programme (UNEP)"
+  "International Press (IP)"
 ];
 
 

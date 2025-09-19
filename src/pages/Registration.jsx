@@ -319,7 +319,7 @@ const Registration = () => {
                   </p>
                   <p className="text-white/80 mb-1">
                     External Participants (Without Accommodation):{" "}
-                    <span className="font-medium">₹2600</span>
+                    <span className="font-medium">₹2700</span>
                   </p>
                   <p className="text-white/80 mb-4">
                     CU Students (Without Accommodation):{" "}
@@ -335,7 +335,7 @@ const Registration = () => {
                 </p>
                 <p className="text-white/80 mb-1">
                   External Participants (Without Accommodation):{" "}
-                  <span className="font-medium">₹2450</span>
+                  <span className="font-medium">₹2550</span>
                 </p>
                 <p className="text-white/80 mb-4">
                   CU Students (Without Accommodation):{" "}

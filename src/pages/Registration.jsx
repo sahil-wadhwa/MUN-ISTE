@@ -251,7 +251,7 @@ const Registration = () => {
                 </p>
                 <p className="text-white/80 mb-1">
                   External Participants (With Accommodation):{" "}
-                  <span className="font-medium">₹3500</span>
+                  <span className="font-medium">₹3300</span>
                 </p>
                 <p className="text-white/80 mb-1">
                   External Participants (Without Accommodation):{" "}
@@ -259,7 +259,7 @@ const Registration = () => {
                 </p>
                 <p className="text-white/80 mb-4">
                   CU Students (Without Accommodation):{" "}
-                  <span className="font-medium">₹2500</span>
+                  <span className="font-medium">₹1700</span>
                 </p>
 
                 <p className="text-red-100 font-semibold underline mb-2">
@@ -267,7 +267,7 @@ const Registration = () => {
                 </p>
                 <p className="text-white/80 mb-1">
                   External Participants (With Accommodation):{" "}
-                  <span className="font-medium">₹3350</span>
+                  <span className="font-medium">₹3150</span>
                 </p>
                 <p className="text-white/80 mb-1">
                   External Participants (Without Accommodation):{" "}
@@ -275,7 +275,7 @@ const Registration = () => {
                 </p>
                 <p className="text-white/80 mb-4">
                   CU Students (Without Accommodation):{" "}
-                  <span className="font-medium">₹2350</span>
+                  <span className="font-medium">₹1700</span>
                 </p>
 
                 <p className="text-white/70 text-sm italic">

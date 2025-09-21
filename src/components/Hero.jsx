@@ -89,10 +89,10 @@ const Hero = () => {
           MODEL UNITED NATIONS
         </h2>
         <h3 className="text-xl sm:text-2xl md:text-4xl font-semibold mt-1">
-          Edition 4.0
+          Edition 2.0
         </h3>
         <p className="mt-8 text-lg sm:text-xl md:text-2xl font-medium">
-          15th - 17th OCTOBER 2025
+          15th - 16th OCTOBER 2025
         </p>
       </div>
 

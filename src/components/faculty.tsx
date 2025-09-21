@@ -1,7 +1,7 @@
 "use client"
 
 import { useState, useEffect } from "react"
-import { Users, BookOpen, Crown, Star, Mail, Phone, GraduationCap, Building, Award } from "lucide-react"
+import { Users, BookOpen, Crown, Star, Mail, Phone, GraduationCap, Building } from "lucide-react"
 
 const facultyLeadership = [
   {
@@ -10,7 +10,7 @@ const facultyLeadership = [
     position: "Hon'ble Chancellor",
     department: "Office of the Chancellor",
     bio: "Head of the university, providing honorary and ceremonial leadership to guide institutional excellence.",
-    image: "/professional-chancellor-portrait.jpg",
+    image: "/assets/Satnam.jpg",
     icon: Crown,
   },
   {
@@ -19,7 +19,7 @@ const facultyLeadership = [
     position: "Hon'ble Vice Chancellor",
     department: "Office of the Vice Chancellor",
     bio: "Vice Chancellor responsible for overall university administration and academic oversight.",
-    image: "/professional-vice-chancellor-portrait.jpg",
+    image: "/assets/manna.jpg",
     icon: Star,
   },
   {
@@ -28,7 +28,7 @@ const facultyLeadership = [
     position: "Pro-Vice Chancellor - Academic Affairs",
     department: "Academic Affairs Office",
     bio: "Pro Vice Chancellor overseeing academic operations and educational excellence across all departments.",
-    image: "/professional-academic-administrator-portrait.jpg",
+    image: "/assets/raghu.jpg",
     icon: GraduationCap,
   },
 ]
@@ -40,7 +40,7 @@ const engineeringLeadership = [
     position: "Executive Director - Engineering",
     department: "Faculty of Engineering",
     bio: "Executive Director of Engineering, leading strategic initiatives and coordinating engineering programs.",
-    image: "/professional-engineering-dean-portrait.jpg",
+    image: "/assets/sachin.png",
     icon: Building,
   },
 ]
@@ -52,16 +52,16 @@ const departmentalFaculty = [
     position: "Associate Director - Department of Computer Science and Engineering",
     department: "Computer Science & Engineering",
     bio: "Deputy Head of Department managing departmental operations and ensuring quality education delivery.",
-    image: "/professional-deputy-hod-portrait.jpg",
+    image: "/assets/kang.jpeg",
     icon: Users,
   },
   {
     id: 6,
-    name: "Dr. Neetu",
+    name: "Dr. Neetu Rani",
     position: "Faculty Advisor",
     department: "Faculty of Engineering",
     bio: "Faculty Member supporting student development through teaching and mentorship.",
-    image: "/professional-faculty-advisor-portrait-female.jpg",
+    image: "/assets/neetu.jpg",
     icon: BookOpen,
   },
   {
@@ -73,7 +73,6 @@ const departmentalFaculty = [
     image: "/professional-faculty-advisor-portrait.jpg",
     icon: BookOpen,
   },
-  
 ]
 
 const FacultyStructure = () => {
@@ -102,7 +101,7 @@ const FacultyStructure = () => {
     }
 
     const imageHeights = {
-      large: "h-90",
+      large: "h-80",
       default: "h-56",
       small: "h-48",
     }
@@ -125,16 +124,17 @@ const FacultyStructure = () => {
         <div className="relative overflow-hidden rounded-t-2xl">
           <div className={`${imageHeights[size]} relative bg-gray-800`}>
             <img
-              src={member.image || "/placeholder.svg?height=400&width=400&query=professional portrait"}
+              src={member.image || "/placeholder.svg"}
               alt={member.name}
               className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
               onError={(e) => {
                 const target = e.target as HTMLImageElement
-                target.style.display = "none"
+                target.src = "/placeholder.svg"
+                target.style.display = "block"
               }}
             />
             {/* Gradient Overlay */}
-            <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/40 to-black/20 bg-gray-900"></div>
+            <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/40 to-black/20"></div>
 
             {/* Icon Badge */}
             {IconComponent && (
@@ -201,26 +201,12 @@ const FacultyStructure = () => {
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-gray-50 via-white to-red-50">
-      {/* Header */}
-      <div className="bg-white shadow-sm border-b border-red-100">
-        <div className="container mx-auto px-4 sm:px-6 lg:px-8 pt-24 pb-8">
-          <div className="text-center"></div>
-        </div>
-      </div>
-
       {/* Main Content */}
       <div className="container mx-auto px-4 sm:px-6 lg:px-8 pt-8 pb-12">
         {/* University Leadership */}
         <section className="mb-20">
           <div className="text-center mb-12">
-            <div className="inline-flex items-center justify-center mb-6">
-              <div className="h-px bg-red-300 flex-1 max-w-20 sm:max-w-32"></div>
-              <h1 className="px-6 text-3xl sm:text-4xl lg:text-5xl font-bold text-red-600">University Leadership</h1>
-              <div className="h-px bg-red-300 flex-1 max-w-20 sm:max-w-32"></div>
-            </div>
-            <p className="text-gray-600 max-w-2xl mx-auto">
-              The senior university leadership team providing strategic direction and institutional governance.
-            </p>
+            <h1 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-red-600">University Leadership</h1>
           </div>
 
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 max-w-5xl mx-auto mb-12">
@@ -231,36 +217,26 @@ const FacultyStructure = () => {
         </section>
 
         {/* Engineering Leadership */}
-        <section className="mb-20">
-          <div className="text-center mb-12">
-            <div className="inline-flex items-center justify-center mb-6">
-              <div className="h-px bg-red-300 flex-1 max-w-20 sm:max-w-32"></div>
-              <h2 className="px-6 text-2xl sm:text-3xl font-bold text-red-600">Engineering Leadership</h2>
-              <div className="h-px bg-red-300 flex-1 max-w-20 sm:max-w-32"></div>
-            </div>
-            <p className="text-gray-600 max-w-2xl mx-auto">
-              Engineering faculty leadership providing strategic guidance and academic excellence.
-            </p>
-          </div>
+        {/* Engineering Leadership */}
+<section className="mb-20">
+  <div className="text-center mb-12">
+    <h2 className="text-2xl sm:text-3xl font-bold text-red-600">Engineering Leadership</h2>
+  </div>
 
-          <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 max-w-4xl mx-auto mb-12">
-            {engineeringLeadership.map((member, index) => (
-              <MemberCard key={member.id} member={member} index={index} size="large" />
-            ))}
-          </div>
-        </section>
+  <div className="flex justify-center">
+    <div className="grid grid-cols-1 sm:grid-cols-1 gap-6 max-w-xs">
+      {engineeringLeadership.map((member, index) => (
+        <MemberCard key={member.id} member={member} index={index} size="large" />
+      ))}
+    </div>
+  </div>
+</section>
+
 
         {/* Faculty Members */}
         <section className="mb-20">
           <div className="text-center mb-12">
-            <div className="inline-flex items-center justify-center mb-6">
-              <div className="h-px bg-red-300 flex-1 max-w-20 sm:max-w-32"></div>
-              <h2 className="px-6 text-2xl sm:text-3xl font-bold text-red-600">Faculty Members</h2>
-              <div className="h-px bg-red-300 flex-1 max-w-20 sm:max-w-32"></div>
-            </div>
-            <p className="text-gray-600 max-w-2xl mx-auto">
-              Dedicated faculty members managing departmental operations and providing quality education.
-            </p>
+            <h2 className="text-2xl sm:text-3xl font-bold text-red-600">Faculty Members</h2>
           </div>
 
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
@@ -289,7 +265,12 @@ const FacultyStructure = () => {
                   <img
                     src={selectedMember.image || "/placeholder.svg"}
                     alt={selectedMember.name}
-                    className="w-24 h-24 rounded-full object-cover ring-4 ring-white shadow-lg"
+                    className="w-40 h-40 rounded-full object-cover ring-4 ring-white shadow-lg"
+                    onError={(e) => {
+                      const target = e.target as HTMLImageElement
+                      target.src = "/placeholder.svg"
+                      target.style.display = "block"
+                    }}
                   />
                   {selectedMember.icon && (
                     <div className="absolute -bottom-2 -right-2 w-8 h-8 bg-white rounded-full flex items-center justify-center shadow-lg">

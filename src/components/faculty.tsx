@@ -70,7 +70,7 @@ const departmentalFaculty = [
     position: "Faculty Co-Advisor",
     department: "Faculty of Engineering",
     bio: "Faculty Member providing quality education and academic guidance to students.",
-    image: "/professional-faculty-advisor-portrait.jpg",
+    image: "/assets/neha.png",
     icon: BookOpen,
   },
 ]

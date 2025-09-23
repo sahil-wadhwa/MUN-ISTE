@@ -15,19 +15,7 @@ const scheduleData = [
     ]
   },
   {
-    day: "Day 2 - Committee Deliberations and Socials",
-    events: [
-      { time: "7:30 AM – 9:00 AM", title: "Breakfast", description: "Morning meal served before sessions begin." },
-      { time: "9:00 AM – 12:00 PM", title: "Committee Session 1", description: "Morning committee discussions and activities." },
-      { time: "12:00 PM – 1:00 PM", title: "Lunch", description: "Buffet lunch and break period." },
-      { time: "1:00 PM – 3:00 PM", title: "Committee Session 2", description: "Afternoon committee continuation." },
-      { time: "3:00 PM – 5:00 PM", title: "Committee Session 3", description: "Final committee round for the day." },
-      { time: "5:00 PM – 5:45 PM", title: "High Tea", description: "Evening refreshments." },
-      { time: "5:45 PM – 8:00 PM", title: "Socials and Dinner", description: "Cultural and networking events with dinner." }
-    ]
-  },
-  {
-    day: "Day 3 - Closure and Awards",
+    day: "Day 2 - Closure and Awards",
     events: [
       { time: "8:00 AM – 9:30 AM", title: "Breakfast", description: "Start the day with a hearty breakfast." },
       { time: "10:00 AM – 12:30 PM", title: "Committee Session 1", description: "Final round of committee discussions." },

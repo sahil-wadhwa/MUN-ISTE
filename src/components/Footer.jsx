@@ -37,7 +37,7 @@ const Footer = () => {
 
   const handleInstagramRedirect = () => {
     const instagramURL =
-      "https://www.instagram.com/cumodelunitednations/?igsh=MXJxdGptOHBmaDNyag%3D%3D#";
+      "https://www.instagram.com/cumodelunitednations2025/";
     window.open(instagramURL, "_blank");
   };
 
